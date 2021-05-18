@@ -3,6 +3,11 @@
 require_relative "preco_certo/version"
 
 module PrecoCerto
-  class Error < StandardError; end
-  # Your code goes here...
+  def self.root
+    File.dirname __dir__
+  end
+
+  def self.lib
+    File.join(root, "lib")
+  end
 end
