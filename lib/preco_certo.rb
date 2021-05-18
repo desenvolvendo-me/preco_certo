@@ -2,6 +2,7 @@
 
 require_relative "preco_certo/version"
 
+# rubocop:disable Style/Documentation
 module PrecoCerto
   def self.root
     File.dirname __dir__
