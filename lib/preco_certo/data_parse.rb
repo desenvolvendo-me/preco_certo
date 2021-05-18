@@ -1,6 +1,8 @@
 # frozen_string_literal: true
-require 'csv'
 
+require "csv"
+
+# Class to parse CSV
 class DataParse
   attr_reader :file
 
@@ -9,8 +11,6 @@ class DataParse
   end
 
   def parse!
-    csv_data = CSV.read(file, col_sep: ";", headers: true)
-
-    csv_data
+    CSV.read(file, col_sep: ";", headers: true)
   end
 end

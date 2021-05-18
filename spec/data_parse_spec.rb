@@ -6,7 +6,7 @@ RSpec.describe "Data Parse" do
   let!(:data_parsed) { DataParse.new("preco_certo/storage/costs.csv").parse! }
 
   it "return headers data parsed" do
-    expect(data_parsed.headers).to eq(["id_despesa", "descricao", "valor"])
+    expect(data_parsed.headers).to eq(%w[id_despesa descricao valor])
   end
 
   it "return first data parsed" do
