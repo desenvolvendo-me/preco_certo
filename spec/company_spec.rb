@@ -1,11 +1,11 @@
-require 'preco_certo/company'
+# frozen_string_literal: true
+
+require "preco_certo/company"
 
 RSpec.describe "Company" do
   let!(:company) { Company.new("preco_certo/storage/companies.csv") }
 
-
-  it 'create a company' do
-
+  it "create a company" do
     name = "empresa5"
     tax_regime = "real_profit"
     phone = "8655559696"
