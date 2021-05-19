@@ -2,16 +2,17 @@
 
 require "preco_certo/data_parse"
 
+# company.rb
 class Company < DataParse
-
   def companies
     parse!
   end
 
   def create(name, tax_regime, phone, cnpj)
     all_companies = companies
-    id = companies[companies.length - 1]["id"].to_i + 1
-    all_companies << [id, name, tax_regime, phone, cnpj]
+    id = companies[companies.length - 1]["id"].to_i
+    next_id = id + 1
+    all_companies << [next_id, name, tax_regime, phone, cnpj]
 
     CSV.open(file, "wb", options) do |csv|
       csv << all_companies.headers
