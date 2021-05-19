@@ -11,6 +11,10 @@ class DataParse
   end
 
   def parse!
-    CSV.read(file, col_sep: ";", headers: true)
+    CSV.read(file, options)
+  end
+
+  def options
+    { col_sep: ";", headers: true }
   end
 end
