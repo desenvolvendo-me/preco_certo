@@ -6,7 +6,7 @@ RSpec.describe "Cost" do
   let(:costs) { Cost.costs }
 
   it "create cost" do
-    cost = Cost.create(10, "agua","100,00")
+    cost = Cost.create(10, "agua", "100,00")
 
     expect(cost.id).to eq(10)
     expect(cost.description).to eq("agua")
