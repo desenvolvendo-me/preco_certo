@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'preco_certo/data_parse'
+require "preco_certo/data_parse"
 
 # class Employee
 class Employee
