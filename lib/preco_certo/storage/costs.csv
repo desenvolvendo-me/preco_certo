@@ -1,4 +1,6 @@
-id_despesa;descricao;valor
+id;description;value
 1;aluguel;1500,00
-2;agua;250,00
+2;água;250,00
 3;luz;350,00
+4;bombeiro;55,00
+5;alimentação;800,00
