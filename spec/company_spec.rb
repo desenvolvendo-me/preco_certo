@@ -10,8 +10,9 @@ RSpec.describe "Company" do
     tax_regime = "real_profit"
     phone = "8655559696"
     cnpj = "52744494000112"
+    id = 6
 
-    company.create(name, tax_regime, phone, cnpj)
+    company.create(id, name, tax_regime, phone, cnpj)
 
     companies = company.companies
     created_company = companies[companies.length - 1]
