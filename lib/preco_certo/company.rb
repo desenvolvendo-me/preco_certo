@@ -8,17 +8,10 @@ class Company < DataParse
     parse!
   end
 
-  def create(name, tax_regime, phone, cnpj)
-    all_companies = companies
-    id = companies[companies.length - 1]["id"].to_i
-    next_id = id + 1
-    all_companies << [next_id, name, tax_regime, phone, cnpj]
-
-    CSV.open(file, "wb", options) do |csv|
-      csv << all_companies.headers
-      all_companies.each do |company|
-        csv << company
-      end
+  def create(id, name, tax_regime, phone, cnpj)
+    CSV.open(file, "a", options) do |csv|
+      csv << []
+      csv << [id, name, tax_regime, phone, cnpj]
     end
   end
 end
