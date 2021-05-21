@@ -2,6 +2,7 @@
 
 require "preco_certo/data_parse"
 
+# class Product, CSV product
 class Product
   attr_accessor :id_product, :description, :unity
 
