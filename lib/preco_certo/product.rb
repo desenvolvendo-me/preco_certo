@@ -23,7 +23,7 @@ class Product
     end
   end
 
-    def self.create(id_product, description, unity)
-      Product.new(id_product, description, unity)
-    end
+  def self.create(id_product, description, unity)
+    Product.new(id_product, description, unity)
+  end
 end
