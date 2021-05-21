@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "preco_certo/product"
 
 RSpec.describe "Product" do
@@ -21,5 +22,3 @@ RSpec.describe "Product" do
     expect(products.first["unity"]).to eq("UN")
   end
 end
-
-
