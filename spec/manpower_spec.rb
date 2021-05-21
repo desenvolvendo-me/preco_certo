@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "preco_certo/manpower"
-
 RSpec.describe "Man_Power" do
   let(:manpowers) { ManPower.manpowers }
 

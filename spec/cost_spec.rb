@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "preco_certo/cost"
-
 RSpec.describe "Cost" do
   let(:costs) { Cost.costs }
 

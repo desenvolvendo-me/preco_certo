@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "preco_certo/product"
-
 RSpec.describe "Product" do
   let(:products) { Product.products }
 

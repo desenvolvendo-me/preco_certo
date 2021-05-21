@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "preco_certo/employee"
-
 RSpec.describe "Employee" do
   describe "GET employees" do
     let(:employees) { Employee.all }
