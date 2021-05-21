@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "preco_certo/data_parse"
-
 # class Employee
 class Employee
   attr_accessor :name, :salary, :work_time

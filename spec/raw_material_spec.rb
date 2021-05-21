@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "preco_certo/raw_material"
-
 RSpec.describe "Raw_material" do
   let!(:raw_material) { RawMaterial.new("preco_certo/storage/raw_materials.csv") }
 

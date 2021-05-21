@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "preco_certo/data_parse"
-
 RSpec.describe "Data Parse" do
   let!(:data_parsed) { DataParse.new("preco_certo/storage/costs.csv").parse! }
 
