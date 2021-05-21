@@ -14,7 +14,7 @@ RSpec.describe "Raw_material" do
     pis = "3.50"
     cofins = "7"
 
-    raw_material.create(id, name, price, icms, ipi, pis, cofins)
+    raw_material.create([id, name, price, icms, ipi, pis, cofins])
 
     raw_materials = raw_material.raw_materials
     created_raw_material = raw_materials[raw_materials.length - 1]
@@ -26,9 +26,7 @@ RSpec.describe "Raw_material" do
   end
 
   it "get first raw_material" do
-
     raw_materials = raw_material.raw_materials
-
 
     expect(raw_materials.first["id"]).to eq("1")
     expect(raw_materials.first["name"]).to eq("farinha de trigo")

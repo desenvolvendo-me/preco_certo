@@ -8,10 +8,9 @@ class RawMaterial < DataParse
     parse!
   end
 
-  def create(id, name, price, icms, ipi, pis, cofins)
+  def create(attributes)
     CSV.open(file, "a", options) do |csv|
-      csv << []
-      csv << [id, name, price, icms, ipi, pis, cofins]
+      csv << attributes
     end
   end
 end
