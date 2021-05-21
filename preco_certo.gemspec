@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Marco Castro"]
   spec.email         = ["marcodotcastro@gmail.com"]
 
-  spec.summary       = "Write a short summary, because RubyGems requires one."
-  spec.description   = "Write a longer description or delete this line."
+  spec.summary       = "Surgiu com a necessidade das empresas calcularem corretamente seu preço de venda pra não terem prejuízos."
+  spec.description   = "É um projeto que envolve alguns cálculos como inclusão e dedução de impostos, acho interessante apesar de ser simples, pode ser ampliando para qualquer setor industrial que produza em grandes quantidades."
   spec.homepage      = "https://github.com/desenvolvendo-me/preco_certo"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.6.0")
