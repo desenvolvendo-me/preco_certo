@@ -25,5 +25,5 @@ class Product
 
   def self.create(id_product, description, unity)
     Product.new(id_product, description, unity)
-  end
+    end
 end
