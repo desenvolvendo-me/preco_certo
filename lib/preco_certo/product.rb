@@ -1,7 +1,5 @@
 # frozen_string_literal: true
-#
 require "preco_certo/data_parse"
-
 # class Cost, CSV cost
 class Product
   attr_accessor :id_product, :description, :unity
@@ -27,17 +25,3 @@ class Product
     Product.new(id_product, description, unity)
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
