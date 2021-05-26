@@ -20,4 +20,8 @@ RSpec.describe "Expense" do
     expect(expenses.first["description"]).to eq("aluguel")
     expect(expenses.first["value"]).to eq("1500,00")
   end
+
+  it "calculate total expenses" do
+    expect(Expense.calculate_total).to eq(2955.00)
+  end
 end
