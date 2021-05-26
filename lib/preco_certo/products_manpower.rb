@@ -2,7 +2,7 @@
 
 require "preco_certo/data_parse"
 
-# class Product, CSV product
+# class ProductManPower, CSV products_manpower
 class ProductManPower
   attr_accessor :id_product, :operation, :employee, :salary, :time, :cost_mo
 
