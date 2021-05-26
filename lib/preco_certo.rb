@@ -2,7 +2,7 @@
 
 require_relative "preco_certo/version"
 require_relative "preco_certo/company"
-require_relative "preco_certo/cost"
+require_relative "preco_certo/expense"
 require_relative "preco_certo/data_parse"
 require_relative "preco_certo/employee"
 require_relative "preco_certo/manpower"
