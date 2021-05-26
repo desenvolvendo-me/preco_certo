@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# class Production Goals
 class ProductionGoals
   attr_reader :id, :id_product, :description, :monthly_goal
 
