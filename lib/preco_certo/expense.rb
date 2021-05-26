@@ -28,6 +28,9 @@ class Expense
   end
 
   def self.calculate_total
-
+    expenses_list = expenses
+    expenses_list.sum do |expense|
+      expense["value"].to_f
+    end
   end
 end
