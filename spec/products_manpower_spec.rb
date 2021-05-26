@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.describe "Product_ManPower" do
-  let(:productsmanpowers) { ProductManPower.productsmanpower}
+  let(:productsmanpowers) { ProductManPower.productsmanpower }
 
   it "create ProductManPower" do
-    product_manpower = ProductManPower.create(6,"Montagem dos Bancos", "Luciano Paulista", "1200.00", 8.50,15.50)
+    product_manpower = ProductManPower.create(6, "Montagem dos Bancos", "Luciano Paulista", "1200.00", 8.50, 15.50)
     expect(product_manpower.id_product).to eq(6)
     expect(product_manpower.operation).to eq("Montagem dos Bancos")
     expect(product_manpower.employee).to eq("Luciano Paulista")
