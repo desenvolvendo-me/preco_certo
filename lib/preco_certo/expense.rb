@@ -2,8 +2,8 @@
 
 require "preco_certo/data_parse"
 
-# class Cost, CSV cost
-class Cost
+# class Expense, CSV expense
+class Expense
   attr_accessor :id, :description, :value
 
   def initialize(id, description, value)
@@ -12,10 +12,10 @@ class Cost
     @value = value
   end
 
-  def self.costs
-    data_parse = DataParse.new("preco_certo/storage/costs.csv").parse!
+  def self.expenses
+    data_parse = DataParse.new("preco_certo/storage/expense.csv").parse!
     data_parse.each do |line|
-      Cost.new(
+      Expense.new(
         line["id"],
         line["description"],
         line["value"]
@@ -24,6 +24,12 @@ class Cost
   end
 
   def self.create(id, descricao, value)
-    Cost.new(id, descricao, value)
+    Expense.new(id, descricao, value)
+  end
+
+  def self.calculate_total
+    expenses.sum do |expense|
+      expense["value"].to_f
+    end
   end
 end
