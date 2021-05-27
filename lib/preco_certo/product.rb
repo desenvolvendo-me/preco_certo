@@ -23,6 +23,16 @@ class Product
     end
   end
 
+  def self.calculemanpower(id_product)
+    data_parse = DataParse.new("preco_certo/storage/products_manpower.csv").parse!
+    total_manpower = 0.00
+    # verificar melhor maneira de filtrar o array
+    data_parse.each do |line|
+      total_manpower += line["cost_mo"].to_f if line["id_product"] == id_product
+    end
+    total_manpower
+  end
+
   def self.create(id_product, description, unity)
     Product.new(id_product, description, unity)
   end
