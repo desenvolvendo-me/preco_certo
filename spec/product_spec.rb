@@ -14,6 +14,16 @@ RSpec.describe "Product" do
     expect(products.length).to eq(5)
   end
 
+  it 'calculate manpower of product 1' do
+    total_manpower = Product.calculemanpower("1")
+    expect(total_manpower).to eq(8.49)
+  end
+
+  it 'calculate manpower of product 2' do
+    total_manpower = Product.calculemanpower("2")
+    expect(total_manpower).to eq(8.51)
+  end
+
   it "get first product" do
     expect(products.first["id_product"]).to eq("1")
     expect(products.first["description"]).to eq("Chevrolet Onix")
