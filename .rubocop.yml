@@ -17,3 +17,6 @@ MethodLength:
 
 Metrics/ParameterLists:
   Enabled: false
+
+Metrics/BlockLength:
+  ExcludedMethods: [ 'describe', 'context', 'feature', 'scenario', 'let' ]
