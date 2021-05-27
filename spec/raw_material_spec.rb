@@ -28,4 +28,10 @@ RSpec.describe "Raw_material" do
     expect(raw_materials.first["price"]).to eq("20.00")
     expect(raw_materials.first["icms"]).to eq("12")
   end
+
+  it "calculate net value of raw material 1" do
+    total = RawMaterial.calculate_net_value("1")
+
+    expect(total).to eq(4.7)
+  end
 end
