@@ -9,6 +9,7 @@ require_relative "preco_certo/manpower"
 require_relative "preco_certo/product"
 require_relative "preco_certo/products_manpower"
 require_relative "preco_certo/raw_material"
+require_relative "preco_certo/markup"
 
 # Preco Certo module Gem
 module PrecoCerto
