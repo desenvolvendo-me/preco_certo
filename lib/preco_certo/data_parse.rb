@@ -14,6 +14,12 @@ class DataParse
     CSV.read(file, options)
   end
 
+  def create(attributes)
+    CSV.open(@file, "a", options) do |csv|
+      csv << attributes
+    end
+  end
+
   def options
     { col_sep: ";", headers: true }
   end
