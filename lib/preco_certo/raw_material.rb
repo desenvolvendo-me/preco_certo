@@ -35,4 +35,18 @@ class RawMaterial
 
     DataParse.new(file).create(attributes)
   end
+
+  def self.calculate_net_value(id_raw_material)
+    raw_material = raw_materials.select do |rm|
+      rm["id"] = id_raw_material
+    end.first
+
+    total = raw_material["price"].to_f -
+              raw_material["icms"].to_f +
+              raw_material["ipi"].to_f -
+              raw_material["pis"].to_f -
+              raw_material["cofins"].to_f
+
+    total.ceil(2)
+  end
 end
