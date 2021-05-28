@@ -5,7 +5,7 @@ RSpec.describe "Product" do
 
   it "create product" do
     product = Product.create(6, "Ford EcoSport", "UN")
-    expect(product.id_product).to eq(6)
+    expect(product.id).to eq(6)
     expect(product.description).to eq("Ford EcoSport")
     expect(product.unity).to eq("UN")
   end
@@ -25,8 +25,10 @@ RSpec.describe "Product" do
   end
 
   it "get first product" do
-    expect(products.first["id_product"]).to eq("1")
-    expect(products.first["description"]).to eq("Chevrolet Onix")
-    expect(products.first["unity"]).to eq("UN")
+    product = products.first
+
+    expect(product.id).to eq("1")
+    expect(product.description).to eq("Chevrolet Onix")
+    expect(product.unity).to eq("UN")
   end
 end

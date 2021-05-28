@@ -4,19 +4,19 @@ require "preco_certo/data_parse"
 
 # class Product, CSV product
 class Product
-  attr_accessor :id_product, :description, :unity
+  attr_accessor :id, :description, :unity
 
-  def initialize(id_product, description, unity)
-    @id_product = id_product
+  def initialize(id, description, unity)
+    @id = id
     @description = description
     @unity = unity
   end
 
   def self.products
     data_parse = DataParse.new("preco_certo/storage/products.csv").parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       Product.new(
-        line["id_product"],
+        line["id"],
         line["description"],
         line["unity"]
       )
