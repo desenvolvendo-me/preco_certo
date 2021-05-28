@@ -26,7 +26,6 @@ RSpec.describe "ProductRawMaterial" do
     expect(product_raw_materials.first["id"]).to eq("1")
   end
 
-
   it "get total cost mp of product_raw 2" do
     total_cost = ProductRawMaterial.total_cost_raw_material("2")
     expect(total_cost).to eq(2000.00)
@@ -36,5 +35,4 @@ RSpec.describe "ProductRawMaterial" do
     total_cost = ProductRawMaterial.total_cost_raw_material("3")
     expect(total_cost).to eq(3500.00)
   end
-
 end
