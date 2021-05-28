@@ -48,7 +48,7 @@ class RawMaterial
     total.ceil(2)
   end
 
-  def fetch_raw_materials(id)
+  def self.fetch_raw_materials(id)
     raw_materials.select { |rm| rm["id"] = id }.first
   end
 end
