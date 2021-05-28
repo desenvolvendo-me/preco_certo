@@ -42,9 +42,12 @@ class Markup
     indice = 0.00
     # verificar melhor maneira de filtrar o array
     data_parse.each do |line|
-      indice = line["profit"].to_f + line["commission"].to_f + line["shipping"].to_f + line["marketing"].to_f + line["icms"].to_f + line["ipi"].to_f + line["pis"].to_f + line["cofins"].to_f if line["id_markup"] == id_markup
+      if line["id_markup"] == id_markup
+        indice = line["profit"].to_f + line["commission"].to_f + line["shipping"].to_f + line["marketing"].to_f +
+                 line["icms"].to_f + line["ipi"].to_f + line["pis"].to_f + line["cofins"].to_f
+      end
     end
-    (100/(100-indice)).round(8)
+    (100 / (100 - indice)).round(8)
   end
 
   def self.create(id_markup, description, profit, commission, shipping, marketing, icms, ipi, pis, cofins)
