@@ -25,7 +25,7 @@ class RawMaterial
         line["icms"],
         line["ipi"],
         line["pis"],
-        line["cofins"],
+        line["cofins"]
       )
     end
   end
@@ -42,10 +42,10 @@ class RawMaterial
     end.first
 
     total = raw_material["price"].to_f -
-              raw_material["icms"].to_f +
-              raw_material["ipi"].to_f -
-              raw_material["pis"].to_f -
-              raw_material["cofins"].to_f
+            raw_material["icms"].to_f +
+            raw_material["ipi"].to_f -
+            raw_material["pis"].to_f -
+            raw_material["cofins"].to_f
 
     total.ceil(2)
   end
