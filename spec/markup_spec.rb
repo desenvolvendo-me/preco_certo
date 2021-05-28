@@ -17,6 +17,16 @@ RSpec.describe "Markup" do
     expect(markup.cofins).to eq(3.00)
   end
 
+  it "calculate index of markup id=1" do
+    index = Markup.calculate_index("1")
+    expect(index).to eq(1.66666667)
+  end
+
+  it "calculate index of markup id=2" do
+    index = Markup.calculate_index("2")
+    expect(index).to eq(1.40845070)
+  end
+
   it "get all markups" do
     expect(markups.length).to eq(5)
   end
