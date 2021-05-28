@@ -29,6 +29,6 @@ RSpec.describe "ProductRawMaterial" do
 
   it "get total cost mp of product 1" do
     total_cost = ProductRawMaterial.total_cost_raw_material("1")
-    expect(total_cost).to eq(14000.00)
+    expect(total_cost).to eq(14_000.00)
   end
 end
