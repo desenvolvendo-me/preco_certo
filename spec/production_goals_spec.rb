@@ -22,4 +22,9 @@ RSpec.describe "ProductionGoals" do
     expect(productions_goals.first["description"]).to eq("Ford – Ecosport")
     expect(productions_goals.first["monthly_goal"]).to eq("1000")
   end
+
+  it "get productions goal by id 3" do
+    product_goal = ProductionGoals.get_product_goal("3")
+    expect(product_goal["id"]).to eq("3")
+  end
 end
