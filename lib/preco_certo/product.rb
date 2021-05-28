@@ -44,9 +44,9 @@ class Product
   end
 
   def sale_price
-    total_mp = ProductRawMaterial.total_cost_raw_material(self.id)
-    total_mo = Product.calculate_manpower(self.id)
-    rateio = Product.calculate_expense_division(self.id)
+    total_mp = ProductRawMaterial.total_cost_raw_material(id)
+    total_mo = Product.calculate_manpower(id)
+    rateio = Product.calculate_expense_division(id)
     indice = Markup.calculate_index("1")
 
     price = (total_mp + total_mo + rateio) * indice

@@ -40,6 +40,6 @@ RSpec.describe "Product" do
   it "calculate sale price of the one product" do
     product = products.first
 
-    expect(product.sale_price).to eq(23352.41)
+    expect(product.sale_price).to eq(23_352.41)
   end
 end
