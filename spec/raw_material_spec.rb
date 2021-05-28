@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe "Raw_material" do
-  let!(:raw_material) { RawMaterial.new("preco_certo/storage/raw_materials.csv") }
+  let(:raw_materials) { RawMaterial.raw_materials }
 
   it "create a raw_material" do
     id = 2
@@ -12,9 +12,8 @@ RSpec.describe "Raw_material" do
     pis = "3.50"
     cofins = "7"
 
-    raw_material.create([id, name, price, icms, ipi, pis, cofins])
+    RawMaterial.create([id, name, price, icms, ipi, pis, cofins])
 
-    raw_materials = raw_material.raw_materials
     created_raw_material = raw_materials[raw_materials.length - 1]
 
     expect(created_raw_material["name"]).to eq(name)
@@ -24,11 +23,15 @@ RSpec.describe "Raw_material" do
   end
 
   it "get first raw_material" do
-    raw_materials = raw_material.raw_materials
-
     expect(raw_materials.first["id"]).to eq("1")
     expect(raw_materials.first["name"]).to eq("farinha de trigo")
     expect(raw_materials.first["price"]).to eq("20.00")
     expect(raw_materials.first["icms"]).to eq("12")
+  end
+
+  it "calculate net value of raw material 1" do
+    total = RawMaterial.calculate_net_value("1")
+
+    expect(total).to eq(4.7)
   end
 end
