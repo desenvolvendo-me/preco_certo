@@ -23,6 +23,14 @@ class ProductionGoals
     end
   end
 
+  def self.get_product_goal(product_id)
+    product_goals = ProductionGoals.productions_goals
+    product_goals.each do |product|
+      return product if product["id"] == product_id
+    end
+    nil
+  end
+
   def self.create(id, id_product, description, monthly_goal)
     ProductionGoals.new(id, id_product, description, monthly_goal)
   end
