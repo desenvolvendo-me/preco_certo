@@ -29,5 +29,4 @@ RSpec.describe "Employee" do
     cost = Employee.calculate_minute_cost("3")
     expect(cost).to eq(0.125)
   end
-
 end
