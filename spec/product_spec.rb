@@ -5,7 +5,7 @@ RSpec.describe "Product" do
 
   it "create product" do
     product = Product.create(6, "Ford EcoSport", "UN")
-    expect(product.id_product).to eq(6)
+    expect(product.id).to eq(6)
     expect(product.description).to eq("Ford EcoSport")
     expect(product.unity).to eq("UN")
   end
@@ -15,12 +15,12 @@ RSpec.describe "Product" do
   end
 
   it "calculate manpower of product 1" do
-    total_manpower = Product.calculemanpower("1")
+    total_manpower = Product.calculate_manpower("1")
     expect(total_manpower).to eq(8.49)
   end
 
   it "calculate manpower of product 2" do
-    total_manpower = Product.calculemanpower("2")
+    total_manpower = Product.calculate_manpower("2")
     expect(total_manpower).to eq(8.51)
   end
 
@@ -30,8 +30,16 @@ RSpec.describe "Product" do
   end
 
   it "get first product" do
-    expect(products.first["id_product"]).to eq("1")
-    expect(products.first["description"]).to eq("Chevrolet Onix")
-    expect(products.first["unity"]).to eq("UN")
+    product = products.first
+
+    expect(product.id).to eq("1")
+    expect(product.description).to eq("Chevrolet Onix")
+    expect(product.unity).to eq("UN")
+  end
+
+  it "calculate sale price of the one product" do
+    product = products.first
+
+    expect(product.sale_price).to eq(23_352.41)
   end
 end
