@@ -24,6 +24,16 @@ class Employee
     end
   end
 
+  def self.calculate_minute_cost(id)
+    data_parse = DataParse.new("preco_certo/storage/employees.csv").parse!
+
+    data_parse.each do |line|
+      if line["id"] == id
+        return (line["salary"].to_f/line["work_time"].to_i)/60
+      end
+    end
+  end
+
   def self.create(id, name, salary, work_time)
     Employee.new(id, name, salary, work_time)
   end
