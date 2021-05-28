@@ -23,7 +23,7 @@ class Product
     end
   end
 
-  def self.calculemanpower(id_product)
+  def self.calculate_manpower(id_product)
     data_parse = DataParse.new("preco_certo/storage/products_manpower.csv").parse!
     total_manpower = 0.00
     # verificar melhor maneira de filtrar o array

@@ -15,12 +15,12 @@ RSpec.describe "Product" do
   end
 
   it "calculate manpower of product 1" do
-    total_manpower = Product.calculemanpower("1")
+    total_manpower = Product.calculate_manpower("1")
     expect(total_manpower).to eq(8.49)
   end
 
   it "calculate manpower of product 2" do
-    total_manpower = Product.calculemanpower("2")
+    total_manpower = Product.calculate_manpower("2")
     expect(total_manpower).to eq(8.51)
   end
 
