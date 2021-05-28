@@ -29,6 +29,13 @@ class ProductRawMaterial
     end
   end
 
+  def self.total_cost_raw_material(id)
+    data_parse = DataParse.new("preco_certo/storage/product_materials.csv").parse!
+    data_parse.each do |line|
+      return line["raw_material_cost"].to_f if line["id"] == id
+    end
+  end
+
   def self.create(id, product_id, raw_material_description, net_price, consumption, raw_material_cost)
     ProductRawMaterial.new(id, product_id, raw_material_description, net_price, consumption, raw_material_cost)
   end
