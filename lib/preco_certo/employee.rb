@@ -28,9 +28,7 @@ class Employee
     data_parse = DataParse.new("preco_certo/storage/employees.csv").parse!
 
     data_parse.each do |line|
-      if line["id"] == id
-        return (line["salary"].to_f/line["work_time"].to_i)/60
-      end
+      return (line["salary"].to_f / line["work_time"].to_i) / 60 if line["id"] == id
     end
   end
 
