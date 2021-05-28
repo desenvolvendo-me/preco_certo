@@ -24,4 +24,9 @@ RSpec.describe "Employee" do
     expect(employee.salary).to eq("1500,00")
     expect(employee.work_time).to eq(200)
   end
+
+  it "calculate minute cost of employee 2" do
+    cost = Employee.calculate_minute_cost("3")
+    expect(cost).to eq(0.125)
+  end
 end
