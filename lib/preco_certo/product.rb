@@ -33,6 +33,12 @@ class Product
     total_manpower
   end
 
+  def self.calculate_expense_division(product_id)
+    product_goal = ProductionGoals.get_product_goal(product_id)
+    total_expense = Expense.calculate_total
+    total_expense.to_f / product_goal["monthly_goal"].to_i
+  end
+
   def self.create(id_product, description, unity)
     Product.new(id_product, description, unity)
   end

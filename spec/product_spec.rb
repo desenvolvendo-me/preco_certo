@@ -24,6 +24,11 @@ RSpec.describe "Product" do
     expect(total_manpower).to eq(8.51)
   end
 
+  it "calculate division expense of product 1" do
+    division_expense = Product.calculate_expense_division("1")
+    expect(division_expense).to eq(2.955)
+  end
+
   it "get first product" do
     product = products.first
 

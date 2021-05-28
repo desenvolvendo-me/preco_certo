@@ -40,7 +40,7 @@ class Markup
   def self.calculate_index(id_markup)
     data_parse = DataParse.new("preco_certo/storage/markup.csv").parse!
     indice = 0.00
-    # verificar melhor maneira de filtrar o array
+    # TODO: verificar melhor maneira de filtrar o array
     data_parse.each do |line|
       if line["id_markup"] == id_markup
         indice = line["profit"].to_f + line["commission"].to_f + line["shipping"].to_f + line["marketing"].to_f +
