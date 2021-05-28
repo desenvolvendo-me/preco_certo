@@ -3,7 +3,7 @@
 RSpec.describe "ProductionGoals" do
   let(:productions_goals) { ProductionGoals.productions_goals }
 
-  it "create cost" do
+  it "create production goals" do
     production_goals = ProductionGoals.create(8, 10, "Audi - A3", "1300")
 
     expect(production_goals.id).to eq(8)
