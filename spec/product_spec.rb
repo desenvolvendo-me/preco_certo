@@ -36,4 +36,10 @@ RSpec.describe "Product" do
     expect(product.description).to eq("Chevrolet Onix")
     expect(product.unity).to eq("UN")
   end
+
+  it "calculate sale price of the one product" do
+    product = products.first
+
+    expect(product.sale_price).to eq(23352.41)
+  end
 end
