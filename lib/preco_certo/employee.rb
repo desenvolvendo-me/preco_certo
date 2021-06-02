@@ -2,14 +2,15 @@
 
 # class Employee
 class Employee
-  attr_accessor :name, :salary, :work_time
+  attr_accessor :name, :salary, :work_time, :id_function
   attr_reader :id
 
-  def initialize(id, name, salary, work_time)
+  def initialize(id, name, salary, work_time, id_function)
     @id = id
     @name = name
     @salary = salary
     @work_time = work_time
+    @id_function = id_function
   end
 
   def self.all
@@ -19,7 +20,8 @@ class Employee
         line["id"],
         line["name"],
         line["salary"],
-        line["work_time"]
+        line["work_time"],
+        line["id_function"]
       )
     end
   end
@@ -32,7 +34,7 @@ class Employee
     end
   end
 
-  def self.create(id, name, salary, work_time)
-    Employee.new(id, name, salary, work_time)
+  def self.create(id, name, salary, work_time, id_function)
+    Employee.new(id, name, salary, work_time, id_function)
   end
 end
