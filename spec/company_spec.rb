@@ -4,12 +4,12 @@ RSpec.describe "Company" do
   let!(:company) { Company.new("preco_certo/storage/companies.csv") }
 
   before do
-    company.create(6,"empresa5", "real_profit", "8655559696", "52744494000112", 1.2, 3, 4, 2)
+    company.create(6, "empresa5", "real_profit", "8655559696", "52744494000112", 1.2, 3, 4, 2)
   end
 
   let(:created_company) { company.companies[company.companies.length - 1] }
 
-  context 'validations csv' do
+  context "validations csv" do
     it "create a company" do
       expect(created_company["name"]).to eq("empresa5")
       expect(created_company["tax_regime"]).to eq("real_profit")
@@ -26,6 +26,5 @@ RSpec.describe "Company" do
       expect(created_company.headers).to eq(array_headers)
       expect(created_company.headers.length).to eq(9)
     end
-
   end
 end
