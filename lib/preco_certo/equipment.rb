@@ -2,6 +2,7 @@
 
 require "csv"
 
+# Class Equipment
 class Equipment
   ID_RANDOM_SET = 2000
   CSV_PATH = "lib/preco_certo/storage/equipments.csv"
