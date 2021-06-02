@@ -16,7 +16,7 @@ RSpec.describe "Equipment" do
     expect(equipment.description).to eq("compreensor")
     expect(equipment.aquisition_date).to eq("01/01/2021")
     expect(equipment.value).to eq(180_000_00)
-    expect(equipment.annual_percentage).to eq(10)
+    expect(equipment.annual_percent).to eq(10)
   end
 
   def restart_csv(file_path)
