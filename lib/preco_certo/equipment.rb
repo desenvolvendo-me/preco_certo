@@ -27,5 +27,4 @@ class Equipment
 
     equipment
   end
-
 end
