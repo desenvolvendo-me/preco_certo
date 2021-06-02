@@ -11,14 +11,13 @@ RSpec.describe "Equipment" do
   after(:all) { restart_csv(csv_path) }
 
   it "create" do
-    equipment = Equipment.create("compreensor", "01/01/2021", 180000, 10)
+    equipment = Equipment.create("compreensor", "01/01/2021", 180_000_00, 10)
 
     expect(equipment.description).to eq("compreensor")
     expect(equipment.aquisition_date).to eq("01/01/2021")
-    expect(equipment.value).to eq(180000)
+    expect(equipment.value).to eq(180_000_00)
     expect(equipment.annual_percentage).to eq(10)
   end
-
 
   def restart_csv(file_path)
     CSV.open(file_path, "wb", col_sep: ";") do |csv|
