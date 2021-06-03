@@ -27,5 +27,7 @@ RSpec.describe "Product_ManPower" do
     expect(productsmanpowers.first["salary"]).to eq("1700.00")
     expect(productsmanpowers.first["time"]).to eq("20.50")
     expect(productsmanpowers.first["cost_mo"]).to eq("2.64")
+    expect(productsmanpowers.first["type_operation"]).to eq("0")
+    expect(productsmanpowers.first["id_equipment"]).to eq("1")
   end
 end
