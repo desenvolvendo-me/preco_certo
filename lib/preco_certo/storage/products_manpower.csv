@@ -1,11 +1,11 @@
 id_product;operation;employee;salary;time;cost_mo;type_operation;id_equipment
 1;Colocar Carroceria;Luciano Paulista;1700.00;20.50;2.64;0;1
-1;Colocar Portas;Lucas Pol;1.600,00;15.5;1.88;1;4
-1;Colocar Motor;Lucas Araújo;1.650,00;12.5;1.56;0;2
-1;Colocar Painel;Marco Castro;2.000,00;9.5;1.44;0;13
-1;Colocar Rodas;Levi Silva;1.700,00;7.5;0.97;1;5
+1;Colocar Portas;Lucas Pol;1600.00;15.5;1.88;1;4
+1;Colocar Motor;Lucas Araújo;1650.00;12.5;1.56;0;2
+1;Colocar Painel;Marco Castro;2000.00;9.5;1.44;0;13
+1;Colocar Rodas;Levi Silva;1700.00;7.5;0.97;1;5
 2;Colocar Carroceria;Luciano Paulista;1700.00;20.50;2.64;0;1
-2;Colocar Portas;Lucas Pol;1.600,00;15.5;1.88;1;2
-2;Colocar Motor;Lucas Araújo;1.650,00;12.5;1.56;0;4
-2;Colocar Painel;Marco Castro;2.000,00;9.5;1.44;1;4
-2;Colocar Rodas;Levi Silva;1.700,00;7.5;0.99;0;1
+2;Colocar Portas;Lucas Pol;1600.00;15.5;1.88;1;2
+2;Colocar Motor;Lucas Araújo;1650.00;12.5;1.56;0;4
+2;Colocar Painel;Marco Castro;2000.00;9.5;1.44;1;4
+2;Colocar Rodas;Levi Silva;1700.00;7.5;0.99;0;1
