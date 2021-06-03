@@ -4,15 +4,17 @@ require "preco_certo/data_parse"
 
 # class ProductManPower, CSV products_manpower
 class ProductManPower
-  attr_accessor :id_product, :operation, :employee, :salary, :time, :cost_mo
+  attr_accessor :id_product, :operation, :employee, :salary, :time, :cost_mo, :type_operation, :id_equipment
 
-  def initialize(id_product, operation, employee, salary, time, cost_mo)
+  def initialize(id_product, operation, employee, salary, time, cost_mo, type_operation, id_equipment)
     @id_product = id_product
     @operation = operation
     @employee = employee
     @salary = salary
     @time = time
     @cost_mo = cost_mo
+    @type_operation = type_operation
+    @id_equipment = id_equipment
   end
 
   def self.productsmanpower
@@ -24,12 +26,14 @@ class ProductManPower
         line["employee"],
         line["salary"],
         line["time"],
-        line["cost_mo"]
+        line["cost_mo"],
+        line["type_operation"],
+        line["id_equipment"]
       )
     end
   end
 
-  def self.create(id_product, operation, employee, salary, time, cost_mo)
-    ProductManPower.new(id_product, operation, employee, salary, time, cost_mo)
+  def self.create(id_product, operation, employee, salary, time, cost_mo, type_operation, id_equipment)
+    ProductManPower.new(id_product, operation, employee, salary, time, cost_mo, type_operation, id_equipment)
   end
 end
