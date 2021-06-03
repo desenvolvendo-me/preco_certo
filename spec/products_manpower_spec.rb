@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe "Product_ManPower" do
-  let(:productsmanpowers) { ProductManPower.productsmanpower }
+  let(:productsmanpowers) { ProductManPower.all }
 
   it "create ProductManPower" do
     product_manpower = ProductManPower.create(6, "Montagem dos Bancos", "Luciano Paulista",

@@ -17,7 +17,7 @@ class ProductManPower
     @id_equipment = id_equipment
   end
 
-  def self.productsmanpower
+  def self.all
     data_parse = DataParse.new("preco_certo/storage/products_manpower.csv").parse!
     data_parse.each do |line|
       ProductManPower.new(
