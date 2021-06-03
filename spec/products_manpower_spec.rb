@@ -30,4 +30,10 @@ RSpec.describe "Product_ManPower" do
     expect(productsmanpowers.first["type_operation"]).to eq("0")
     expect(productsmanpowers.first["id_equipment"]).to eq("1")
   end
+
+  it "calculates machine time" do
+    machine_time = ProductManPower.machine_time
+
+    expect(machine_time).to eq(48.00)
+  end
 end
