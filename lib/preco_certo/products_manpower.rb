@@ -19,7 +19,7 @@ class ProductManPower
 
   def self.all
     data_parse = DataParse.new("preco_certo/storage/products_manpower.csv").parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       ProductManPower.new(
         line["id_product"],
         line["operation"],
