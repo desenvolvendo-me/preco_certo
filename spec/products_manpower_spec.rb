@@ -21,14 +21,14 @@ RSpec.describe "Product_ManPower" do
   end
 
   it "get first product_manpower" do
-    expect(productsmanpowers.first["id_product"]).to eq("1")
-    expect(productsmanpowers.first["operation"]).to eq("Colocar Carroceria")
-    expect(productsmanpowers.first["employee"]).to eq("Luciano Paulista")
-    expect(productsmanpowers.first["salary"]).to eq("1700.00")
-    expect(productsmanpowers.first["time"]).to eq("20.50")
-    expect(productsmanpowers.first["cost_mo"]).to eq("2.64")
-    expect(productsmanpowers.first["type_operation"]).to eq("0")
-    expect(productsmanpowers.first["id_equipment"]).to eq("1")
+    expect(productsmanpowers.first&.id_product).to eq("1")
+    expect(productsmanpowers.first&.operation).to eq("Colocar Carroceria")
+    expect(productsmanpowers.first&.employee).to eq("Luciano Paulista")
+    expect(productsmanpowers.first&.salary).to eq("1700.00")
+    expect(productsmanpowers.first&.time).to eq("20.50")
+    expect(productsmanpowers.first&.cost_mo).to eq("2.64")
+    expect(productsmanpowers.first&.type_operation).to eq("0")
+    expect(productsmanpowers.first&.id_equipment).to eq("1")
   end
 
   it "calculates machine time" do
