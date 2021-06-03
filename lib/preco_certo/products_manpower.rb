@@ -36,4 +36,12 @@ class ProductManPower
   def self.create(id_product, operation, employee, salary, time, cost_mo, type_operation, id_equipment)
     ProductManPower.new(id_product, operation, employee, salary, time, cost_mo, type_operation, id_equipment)
   end
+
+  def self.machine_time
+    products_manpower = ProductManPower.all
+
+    products_manpower.reduce(0) do |time, product|
+      product.type_operation == "1" ? time + product.time.to_f : time
+    end
+  end
 end
