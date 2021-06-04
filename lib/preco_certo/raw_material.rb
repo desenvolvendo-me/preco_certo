@@ -36,15 +36,29 @@ class RawMaterial
     DataParse.new(file).create(attributes)
   end
 
-  def self.calculate_net_value(id)
+  def self.calculate_net_value(id, id_company)
+    # TODO: revisar estes calculos, provavelmente estao errados
     raw_material = fetch_raw_materials(id)
+    total = 0
 
-    total = raw_material["price"].to_f -
-            raw_material["icms"].to_f +
-            raw_material["ipi"].to_f -
-            raw_material["pis"].to_f -
-            raw_material["cofins"].to_f
+    if id_company.zero?
+      total = raw_material["price"].to_f -
+              raw_material["icms"].to_f +
+              raw_material["ipi"].to_f -
+              raw_material["pis"].to_f -
+              raw_material["cofins"].to_f
+    else
+      data_parse = DataParse.new("preco_certo/storage/companies.csv").parse!
+      data_parse.each do |line|
+        next unless line["id"].to_i == id_company
 
+        total = raw_material["price"].to_f -
+                line["icms"].to_f +
+                line["ipi"].to_f +
+                line["pis"].to_f +
+                line["cofins"].to_f
+      end
+    end
     total.ceil(2)
   end
 
