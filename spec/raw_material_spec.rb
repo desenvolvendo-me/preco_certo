@@ -30,8 +30,14 @@ RSpec.describe "Raw_material" do
   end
 
   it "calculate net value of raw material 1" do
-    total = RawMaterial.calculate_net_value("1")
+    total = RawMaterial.calculate_net_value("1", 0)
 
     expect(total).to eq(4.7)
+  end
+
+  it "when company id is greater than 0" do
+    total = RawMaterial.calculate_net_value("1", 6)
+
+    expect(total).to eq(27.8)
   end
 end
