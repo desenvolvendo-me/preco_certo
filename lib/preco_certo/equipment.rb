@@ -27,4 +27,15 @@ class Equipment
 
     equipment
   end
+
+  def current_value
+    today = Date.today
+    aquisited_date = Date.parse(aquisition_date)
+    total_days_of_year = 365
+
+    value_per_year = format("%.2f", value / (100 / annual_percent) / total_days_of_year)
+    days_diff = (today - aquisited_date).to_i
+
+    value - (days_diff * value_per_year.to_f)
+  end
 end

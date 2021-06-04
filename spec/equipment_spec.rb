@@ -19,6 +19,13 @@ RSpec.describe "Equipment" do
     expect(equipment.annual_percent).to eq(10)
   end
 
+  it "calculate actual value of the equipment" do
+    allow(Date).to receive(:today).and_return(Date.new(2021, 12, 31))
+    equipment = Equipment.create("compreensor", "01/01/2021", 180_000_00, 10)
+
+    expect(equipment.current_value).to eq(162_051_16)
+  end
+
   def restart_csv(file_path)
     CSV.open(file_path, "wb", col_sep: ";") do |csv|
       csv << %w[id description aquisition_date value annual_percentage]
