@@ -33,9 +33,9 @@ class Equipment
     aquisited_date = Date.parse(aquisition_date)
     total_days_of_year = 365
 
-    value_per_year = format("%.2f", equipment.value / (100 / equipment.annual_percent) / total_days_of_year)
-    days_diff = (today - aquisition_date).to_i
+    value_per_year = format("%.2f", value / (100 / annual_percent) / total_days_of_year)
+    days_diff = (today - aquisited_date).to_i
 
-    equipment.value - (days_diff * value_per_year.to_f)
+    value - (days_diff * value_per_year.to_f)
   end
 end
