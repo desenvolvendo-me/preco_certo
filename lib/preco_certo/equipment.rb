@@ -38,4 +38,8 @@ class Equipment
 
     value - (days_diff * value_per_year.to_f)
   end
+
+  def deprecation_month
+    value / ((100 / annual_percent) * 12)
+  end
 end
