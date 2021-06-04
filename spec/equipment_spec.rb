@@ -24,8 +24,8 @@ RSpec.describe "Equipment" do
   it "calculate actual value of the equipment" do
     allow(Date).to receive(:today).and_return(Date.new(2021, 12, 31))
     equipment = Equipment.create("compreensor", "01/01/2021", 180_000_00, 10)
-    actual_value_equipment = Equipment.calculate_actual_value(equipment, "31/12/2021")
-    expect(actual_value_equipment).to eq(162_051_16)
+
+    expect(equipment.current_value).to eq(162_051_16)
   end
 
   def restart_csv(file_path)
