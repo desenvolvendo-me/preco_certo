@@ -26,6 +26,11 @@ RSpec.describe "Equipment" do
     expect(equipment.current_value).to eq(162_051_16)
   end
 
+  it "calculate deprecation month of the equipment" do
+    equipment = Equipment.create("compreensor", "01/01/2021", 180_000_00, 10)
+    expect(equipment.deprecation_month).to eq(1_500_00)
+  end
+
   def restart_csv(file_path)
     CSV.open(file_path, "wb", col_sep: ";") do |csv|
       csv << %w[id description aquisition_date value annual_percentage]
