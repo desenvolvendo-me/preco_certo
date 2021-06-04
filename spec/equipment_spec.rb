@@ -22,18 +22,9 @@ RSpec.describe "Equipment" do
   end
 
   it "calculate actual value of the equipment" do
-    equipment_value = 180000.00
-    annual_percent = 10
-    aquisition_date = Date.parse("01/01/2021")
-    today = Date.parse("31/12/2021")
-    total_days_of_year = 365
-
-    value_per_year = sprintf("%.2f", equipment_value / (100 / annual_percent) / total_days_of_year).to_f
-
-    days_between_today_and_aquisition_date = (today - aquisition_date).to_i
-    actual_value_equipment = equipment_value - (days_between_today_and_aquisition_date * value_per_year)
-
-    expect(162047.52).to eq(actual_value_equipment)
+    equipment = Equipment.create("compreensor", "01/01/2021", 180000.00, 10)
+    actual_value_equipment = Equipment.calculate_actual_value(equipment, "31/12/2021")
+    expect(actual_value_equipment).to eq(162047.52)
   end
 
   def restart_csv(file_path)
