@@ -27,4 +27,15 @@ class Equipment
 
     equipment
   end
+
+  def self.calculate_actual_value(equipment, date_now)
+    aquisition_date = Date.parse(equipment.aquisition_date)
+    today = Date.parse(date_now)
+    total_days_of_year = 365
+
+    value_per_year = sprintf("%.2f", equipment.value / (100 / equipment.annual_percent) / total_days_of_year).to_f
+    days_diff = (today - aquisition_date).to_i
+
+    return equipment.value - (days_diff * value_per_year)
+  end
 end
