@@ -44,4 +44,12 @@ class ProductManPower
       product.type_operation == "1" ? time + product.time.to_f : time
     end
   end
+
+  def self.manual_time
+    products_manpower = ProductManPower.all
+
+    products_manpower.reduce(0) do |time, product|
+      product.type_operation == "0" ? time + product.time.to_f : time
+    end
+  end
 end
