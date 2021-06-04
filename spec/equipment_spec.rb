@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "date"
-
 RSpec.describe "Equipment" do
   csv_path = "lib/preco_certo/storage/equipments.csv"
 
