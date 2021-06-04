@@ -33,7 +33,7 @@ class Equipment
     today = Date.parse(date_now)
     total_days_of_year = 365
 
-    value_per_year = sprintf("%.2f", equipment.value / (100 / equipment.annual_percent) / total_days_of_year).to_f
+    value_per_year = format("%.2f", equipment.value / (100 / equipment.annual_percent) / total_days_of_year)
     days_diff = (today - aquisition_date).to_i
 
     return equipment.value - (days_diff * value_per_year)
