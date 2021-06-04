@@ -19,7 +19,7 @@ class ProductManPower
 
   def self.all
     data_parse = DataParse.new("preco_certo/storage/products_manpower.csv").parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       ProductManPower.new(
         line["id_product"],
         line["operation"],
@@ -35,5 +35,13 @@ class ProductManPower
 
   def self.create(id_product, operation, employee, salary, time, cost_mo, type_operation, id_equipment)
     ProductManPower.new(id_product, operation, employee, salary, time, cost_mo, type_operation, id_equipment)
+  end
+
+  def self.machine_time
+    products_manpower = ProductManPower.all
+
+    products_manpower.reduce(0) do |time, product|
+      product.type_operation == "1" ? time + product.time.to_f : time
+    end
   end
 end
