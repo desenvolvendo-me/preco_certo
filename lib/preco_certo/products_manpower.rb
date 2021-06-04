@@ -38,10 +38,23 @@ class ProductManPower
   end
 
   def self.machine_time
+    ProductManPower.calculate_work_time("machine")
+  end
+
+  def self.manual_time
+    ProductManPower.calculate_work_time("manual")
+  end
+
+  def self.calculate_work_time(work_type)
+    work_types = {
+      "manual" => "0",
+      "machine" => "1"
+    }
+
     products_manpower = ProductManPower.all
 
     products_manpower.reduce(0) do |time, product|
-      product.type_operation == "1" ? time + product.time.to_f : time
+      product.type_operation == work_types[work_type] ? time + product.time.to_f : time
     end
   end
 end

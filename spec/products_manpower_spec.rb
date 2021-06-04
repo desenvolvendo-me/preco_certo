@@ -36,4 +36,10 @@ RSpec.describe "Product_ManPower" do
 
     expect(machine_time).to eq(48.00)
   end
+
+  it "calculates manual time" do
+    machine_time = ProductManPower.manual_time
+
+    expect(machine_time).to eq(83.00)
+  end
 end
