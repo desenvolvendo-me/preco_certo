@@ -36,6 +36,6 @@ class Equipment
     value_per_year = format("%.2f", equipment.value / (100 / equipment.annual_percent) / total_days_of_year)
     days_diff = (today - aquisition_date).to_i
 
-    return equipment.value - (days_diff * value_per_year)
+    equipment.value - (days_diff * value_per_year.to_f)
   end
 end
