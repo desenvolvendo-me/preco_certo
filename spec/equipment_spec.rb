@@ -31,6 +31,15 @@ RSpec.describe "Equipment" do
     expect(equipment.deprecation_month).to eq(1_500_00)
   end
 
+  it "calculate total deprecation all equipments" do
+    deprecation_values = []
+    deprecation_values.push(Equipment.create("Serra Elétrica", "12/03/2021", 2500, 3).deprecation_month)
+    deprecation_values.push(Equipment.create("Furadeira", "21/02/2021", 1200, 2).deprecation_month)
+    deprecation_values.push(Equipment.create("Serra Fita", "19/04/2021", 5650, 20).deprecation_month)
+
+    expect(deprecation_values.sum).to eq(102.48)
+  end
+
   def restart_csv(file_path)
     CSV.open(file_path, "wb", col_sep: ";") do |csv|
       csv << %w[id description aquisition_date value annual_percentage]
