@@ -40,6 +40,8 @@ class Equipment
   end
 
   def deprecation_month
-    value / ((100 / annual_percent) * 12)
+    percent = format("%.2f", 100 / annual_percent).to_f
+    per_month = (percent * 12).to_f
+    format("%.2f", value / per_month).to_f
   end
 end
