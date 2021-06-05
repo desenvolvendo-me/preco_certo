@@ -11,11 +11,11 @@ class DataParse
   end
 
   def parse!
-    CSV.read(file, options)
+    CSV.read(file, **options)
   end
 
   def create(attributes)
-    CSV.open(@file, "a", options) do |csv|
+    CSV.open(@file, "a", **options) do |csv|
       csv << attributes
     end
   end

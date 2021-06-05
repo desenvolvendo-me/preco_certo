@@ -4,6 +4,11 @@ RSpec.describe "Employee" do
   describe "GET employees" do
     let(:employees) { Employee.all }
 
+    it "check csv headers" do
+      expect(employees.headers.length).to eq(5)
+      expect(employees.headers).to eq(%w[id name salary work_time id_function])
+    end
+
     it "verify length employees" do
       expect(employees.length).to eq(5)
     end
@@ -17,12 +22,13 @@ RSpec.describe "Employee" do
   end
 
   it "create employee" do
-    employee = Employee.create(10, "José", "1500,00", 200)
+    employee = Employee.create(10, "José", "1500,00", 200, 1)
 
     expect(employee.id).to eq(10)
     expect(employee.name).to eq("José")
     expect(employee.salary).to eq("1500,00")
     expect(employee.work_time).to eq(200)
+    expect(employee.id_function).to eq(1)
   end
 
   it "calculate minute cost of employee 2" do
