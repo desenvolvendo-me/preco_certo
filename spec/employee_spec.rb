@@ -31,8 +31,8 @@ RSpec.describe "Employee" do
     expect(employee.id_function).to eq(1)
   end
 
-  it "calculate minute cost of employee 2" do
-    cost = Employee.calculate_minute_cost("3")
-    expect(cost).to eq(0.125)
+  it "calculate minute cost of employee 3" do
+    cost = Employee.calculate_minute_cost("3", "1")
+    expect(cost).to eq(0.1375)
   end
 end
