@@ -8,10 +8,9 @@ class Company < DataParse
     parse!
   end
 
-  def create(id, name, tax_regime, phone, cnpj, icms, ipi, pis, cofins)
+  def create(id, name, tax_regime, phone, cnpj, icms, ipi, pis, cofins, payroll_percentage)
     CSV.open(file, "a", **options) do |csv|
-      csv << []
-      csv << [id, name, tax_regime, phone, cnpj, icms, ipi, pis, cofins]
+      csv << [id, name, tax_regime, phone, cnpj, icms, ipi, pis, cofins, payroll_percentage]
     end
   end
 end
