@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 RSpec.describe "Company" do
-  let!(:company) { Company.new("preco_certo/storage/companies.csv") }
-
   before do
-    company.create(6, "empresa5", "real_profit", "8655559696", "52744494000112", 1.2, 3, 4, 2, 20)
+    Company.create(6, "empresa5", "real_profit", "8655559696", "52744494000112", 1.2, 3, 4, 2, 20)
   end
 
-  let(:created_company) { company.companies[company.companies.length - 1] }
+  let(:created_company) { Company.all[-1] }
 
   context "validations csv" do
     it "create a company" do
