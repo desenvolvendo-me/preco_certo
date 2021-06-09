@@ -2,8 +2,7 @@
 
 # class Employee
 class Employee
-  attr_accessor :name, :salary, :work_time, :id_function
-  attr_reader :id
+  attr_reader :id, :name, :salary, :work_time, :id_function
 
   def initialize(id, name, salary, work_time, id_function)
     @id = id
@@ -15,7 +14,7 @@ class Employee
 
   def self.all
     data_parse = DataParse.new("preco_certo/storage/employees.csv").parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       Employee.new(
         line["id"],
         line["name"],

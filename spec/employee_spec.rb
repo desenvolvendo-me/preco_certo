@@ -5,8 +5,10 @@ RSpec.describe "Employee" do
     let(:employees) { Employee.all }
 
     it "check csv headers" do
-      expect(employees.headers.length).to eq(5)
-      expect(employees.headers).to eq(%w[id name salary work_time id_function])
+      headers = CSV.open("lib/preco_certo/storage/employees.csv", col_sep: ";", &:readline)
+
+      expect(headers.length).to eq(5)
+      expect(headers).to eq(%w[id name salary work_time id_function])
     end
 
     it "verify length employees" do
@@ -14,10 +16,11 @@ RSpec.describe "Employee" do
     end
 
     it "get first employee" do
-      expect(employees.first["id"]).to eq("1")
-      expect(employees.first["name"]).to eq("Luciano Paulista")
-      expect(employees.first["salary"]).to eq("1700,00")
-      expect(employees.first["work_time"]).to eq("220")
+      expect(employees.first.id).to eq("1")
+      expect(employees.first.name).to eq("Luciano Paulista")
+      expect(employees.first.salary).to eq("1700,00")
+      expect(employees.first.work_time).to eq("220")
+      expect(employees.first.id_function).to eq("1")
     end
   end
 
