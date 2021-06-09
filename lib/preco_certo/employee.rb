@@ -26,11 +26,19 @@ class Employee
     end
   end
 
-  def self.calculate_minute_cost(id)
-    data_parse = DataParse.new("preco_certo/storage/employees.csv").parse!
+  def self.calculate_minute_cost(id, company_id)
+    employees_csv = DataParse.new("preco_certo/storage/employees.csv").parse!
+    company_payroll_percentage = 0
 
-    data_parse.each do |line|
-      return (line["salary"].to_f / line["work_time"].to_i) / 60 if line["id"] == id
+    DataParse.new("preco_certo/storage/companies.csv").parse!.each do |line|
+      company_payroll_percentage = line["payroll_percentage"].to_f if line["id"] == company_id
+    end
+
+    employees_csv.each do |line|
+      if line["id"] == id
+        taxes = line["salary"].to_f * company_payroll_percentage / 100
+        return ((line["salary"].to_f + taxes) / line["work_time"].to_i) / 60
+      end
     end
   end
 
