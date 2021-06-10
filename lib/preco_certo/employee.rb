@@ -7,8 +7,8 @@ class Employee
   def initialize(id, name, salary, work_time, id_function)
     @id = id
     @name = name
-    @salary = salary
-    @work_time = work_time
+    @salary = salary.to_f
+    @work_time = work_time.to_i
     @id_function = id_function
   end
 
@@ -25,20 +25,16 @@ class Employee
     end
   end
 
-  def self.calculate_minute_cost(id, company_id)
-    employees_csv = DataParse.new("preco_certo/storage/employees.csv").parse!
+  def minute_cost(company_id)
     company_payroll_percentage = 0
 
     DataParse.new("preco_certo/storage/companies.csv").parse!.each do |line|
       company_payroll_percentage = line["payroll_percentage"].to_f if line["id"] == company_id
     end
 
-    employees_csv.each do |line|
-      if line["id"] == id
-        taxes = line["salary"].to_f * company_payroll_percentage / 100
-        return ((line["salary"].to_f + taxes) / line["work_time"].to_i) / 60
-      end
-    end
+    taxes = salary * company_payroll_percentage / 100
+
+    (salary + taxes) / work_time / 60
   end
 
   def self.create(id, name, salary, work_time, id_function)
