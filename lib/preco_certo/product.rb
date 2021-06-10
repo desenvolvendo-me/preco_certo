@@ -43,6 +43,14 @@ class Product
     Product.new(id_product, description, unity)
   end
 
+  def daily_machine_manpower
+    machine_manpower = ProductManPower.machine_time(id)
+
+    monthly_goal = ProductionGoals.get_product_goal(id.to_s)["monthly_goal"].to_f || 0
+
+    ((monthly_goal / 22) * machine_manpower) / 528
+  end
+
   def daily_manual_manpower
     manual_manpower = ProductManPower.manual_time(id)
 
