@@ -37,8 +37,8 @@ class ProductManPower
     ProductManPower.new(id_product, operation, employee, salary, time, cost_mo, type_operation, id_equipment)
   end
 
-  def self.machine_time
-    ProductManPower.calculate_work_time("machine")
+  def self.machine_time(product_id = nil)
+    ProductManPower.calculate_work_time("machine", product_id)
   end
 
   def self.manual_time(product_id = nil)
