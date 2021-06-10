@@ -27,13 +27,25 @@ RSpec.describe "Product" do
   it "calculate daily manual manpower of product 1" do
     product = products.find { |prod| prod.id == "1" }
 
-    expect(product.daily_manual_manpower).to be_within(0.01).of(3.65)
+    expect(product&.daily_manual_manpower).to be_within(0.01).of(3.65)
   end
 
   it "calculate daily manual manpower of product 2" do
     product = products.find { |prod| prod.id == "2" }
 
-    expect(product.daily_manual_manpower).to be_within(0.01).of(4.18)
+    expect(product&.daily_manual_manpower).to be_within(0.01).of(4.18)
+  end
+
+  it "calculate daily machine manpower of product 1" do
+    product = products.find { |prod| prod.id == "1" }
+
+    expect(product&.daily_machine_manpower).to be_within(0.01).of(1.98)
+  end
+
+  it "calculate daily machine manpower of product 2" do
+    product = products.find { |prod| prod.id == "2" }
+
+    expect(product&.daily_machine_manpower).to be_within(0.01).of(2.58)
   end
 
   it "calculate division expense of product 1" do
@@ -44,14 +56,14 @@ RSpec.describe "Product" do
   it "get first product" do
     product = products.first
 
-    expect(product.id).to eq("1")
-    expect(product.description).to eq("Chevrolet Onix")
-    expect(product.unity).to eq("UN")
+    expect(product&.id).to eq("1")
+    expect(product&.description).to eq("Chevrolet Onix")
+    expect(product&.unity).to eq("UN")
   end
 
   it "calculate sale price of the one product" do
     product = products.first
 
-    expect(product.sale_price).to eq(23_352.41)
+    expect(product&.sale_price).to eq(23_352.41)
   end
 end
