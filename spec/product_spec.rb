@@ -24,6 +24,18 @@ RSpec.describe "Product" do
     expect(total_manpower).to eq(8.51)
   end
 
+  it "calculate daily manual manpower of product 1" do
+    product = products.find { |prod| prod.id == "1" }
+
+    expect(product.daily_manual_manpower).to be_within(0.01).of(3.65)
+  end
+
+  it "calculate daily manual manpower of product 2" do
+    product = products.find { |prod| prod.id == "2" }
+
+    expect(product.daily_manual_manpower).to be_within(0.01).of(4.18)
+  end
+
   it "calculate division expense of product 1" do
     division_expense = Product.calculate_expense_division("1")
     expect(division_expense).to eq(2.955)
