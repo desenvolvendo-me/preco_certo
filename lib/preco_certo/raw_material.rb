@@ -44,17 +44,11 @@ class RawMaterial
 
   def net_value
     total = price -
-            percentage(price, icms) +
-            percentage(price, ipi) -
-            percentage(price, pis) -
-            percentage(price, cofins)
+            price * icms / 100 +
+            price * ipi / 100 -
+            price * pis / 100 -
+            price * cofins / 100
 
     total.round(2)
-  end
-
-  private
-
-  def percentage(price, tax)
-    price * tax / 100
   end
 end
