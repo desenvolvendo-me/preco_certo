@@ -12,7 +12,7 @@ class Product
     @unity = unity
   end
 
-  def self.products
+  def self.all
     data_parse = DataParse.new("preco_certo/storage/products.csv").parse!
     data_parse.map do |line|
       Product.new(

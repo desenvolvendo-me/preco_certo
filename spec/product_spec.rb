@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe "Product" do
-  let(:products) { Product.products }
+  let(:products) { Product.all }
 
   it "create product" do
     product = Product.create(6, "Ford EcoSport", "UN")
