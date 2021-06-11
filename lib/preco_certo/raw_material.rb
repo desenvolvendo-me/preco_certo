@@ -41,13 +41,19 @@ class RawMaterial
   def self.calculate_net_value(id)
     raw_material = fetch_raw_materials(id)
 
-    total = raw_material.price.to_f -
-            raw_material.icms.to_f +
-            raw_material.ipi.to_f -
-            raw_material.pis.to_f -
-            raw_material.cofins.to_f
+    price = raw_material.price.to_f
 
-    total.ceil(2)
+    total = price -
+            percentage(price, raw_material.icms.to_f) +
+            percentage(price, raw_material.ipi.to_f) -
+            percentage(price, raw_material.pis.to_f) -
+            percentage(price, raw_material.cofins.to_f)
+
+    total.round(2)
+  end
+
+  def self.percentage(price, tax)
+    price * tax / 100
   end
 
   def self.fetch_raw_materials(id)
