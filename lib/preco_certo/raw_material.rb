@@ -38,25 +38,23 @@ class RawMaterial
     DataParse.new(file).create(attributes)
   end
 
-  def self.calculate_net_value(id)
-    raw_material = fetch_raw_materials(id)
+  def self.fetch_raw_materials(id)
+    all.find { |rm| rm.id == id }
+  end
 
-    price = raw_material.price.to_f
-
-    total = price -
-            percentage(price, raw_material.icms.to_f) +
-            percentage(price, raw_material.ipi.to_f) -
-            percentage(price, raw_material.pis.to_f) -
-            percentage(price, raw_material.cofins.to_f)
+  def net_value
+    total = price.to_f -
+            percentage(price, icms) +
+            percentage(price, ipi) -
+            percentage(price, pis) -
+            percentage(price, cofins)
 
     total.round(2)
   end
 
-  def self.percentage(price, tax)
-    price * tax / 100
-  end
+  private
 
-  def self.fetch_raw_materials(id)
-    all.find { |rm| rm.id == id }
+  def percentage(price, tax)
+    price.to_f * tax.to_f / 100
   end
 end
