@@ -32,7 +32,8 @@ class Equipment
     equipments = []
 
     CSV.read(CSV_PATH, headers: true, col_sep: ";").each do |row|
-      equipments << Equipment.new(row["id"], row["description"], row["aquisition_date"], row["value"], row["annual_percent"])
+      equipments << Equipment.new(row["id"], row["description"],
+                                  row["aquisition_date"], row["value"], row["annual_percent"])
     end
 
     equipments
