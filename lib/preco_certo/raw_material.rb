@@ -7,13 +7,13 @@ class RawMaterial
   attr_reader :id, :name, :price, :icms, :ipi, :pis, :cofins
 
   def initialize(id, name, price, icms, ipi, pis, cofins)
-    @id = id
+    @id = id.to_i
     @name = name
-    @price = price
-    @icms = icms
-    @ipi = ipi
-    @pis = pis
-    @cofins = cofins
+    @price = price.to_f
+    @icms = icms.to_f
+    @ipi = ipi.to_f
+    @pis = pis.to_f
+    @cofins = cofins.to_f
   end
 
   def self.all
@@ -43,7 +43,7 @@ class RawMaterial
   end
 
   def net_value
-    total = price.to_f -
+    total = price -
             percentage(price, icms) +
             percentage(price, ipi) -
             percentage(price, pis) -
@@ -55,6 +55,6 @@ class RawMaterial
   private
 
   def percentage(price, tax)
-    price.to_f * tax.to_f / 100
+    price * tax / 100
   end
 end
