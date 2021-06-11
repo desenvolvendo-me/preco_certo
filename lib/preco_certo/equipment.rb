@@ -21,7 +21,7 @@ class Equipment
     id = rand(ID_RANDOM_SET)
     equipment = Equipment.new(id, description, aquisition_date, value, annual_percent)
 
-    CSV.open(CSV_PATH, "ab") do |csv|
+    CSV.open(CSV_PATH, "ab", col_sep: ";") do |csv|
       csv << [equipment.id, equipment.description, equipment.aquisition_date, equipment.value, equipment.annual_percent]
     end
 
