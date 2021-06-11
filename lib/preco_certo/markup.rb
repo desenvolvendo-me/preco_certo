@@ -4,7 +4,7 @@ require "preco_certo/data_parse"
 
 # class Markup, CSV Markup
 class Markup
-  attr_accessor :id_markup, :description, :profit, :commission, :shipping, :marketing, :icms, :ipi, :pis, :cofins
+  attr_reader :id_markup, :description, :profit, :commission, :shipping, :marketing, :icms, :ipi, :pis, :cofins
 
   def initialize(id_markup, description, profit, commission, shipping, marketing, icms, ipi, pis, cofins)
     @id_markup = id_markup
@@ -19,9 +19,9 @@ class Markup
     @cofins = cofins
   end
 
-  def self.markup
+  def self.all
     data_parse = DataParse.new("preco_certo/storage/markup.csv").parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       Markup.new(
         line["id_markup"],
         line["description"],

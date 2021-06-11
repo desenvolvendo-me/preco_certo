@@ -15,9 +15,9 @@ class ProductRawMaterial
     @id = id
   end
 
-  def self.product_raw_material
+  def self.all
     data_parse = DataParse.new("preco_certo/storage/product_materials.csv").parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       ProductRawMaterial.new(
         line["id"],
         line["product_id"],

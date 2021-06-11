@@ -12,9 +12,9 @@ class ManPower
     @time = time
   end
 
-  def self.manpowers
+  def self.all
     data_parse = DataParse.new("preco_certo/storage/manpower.csv").parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       ManPower.new(
         line["id_manpower"],
         line["description"],

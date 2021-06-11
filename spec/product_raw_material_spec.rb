@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe "ProductRawMaterial" do
-  let(:product_raw_materials) { ProductRawMaterial.product_raw_material }
+  let(:product_raw_materials) { ProductRawMaterial.all }
 
   it "create ProductRawMaterial" do
     product_raw_material = ProductRawMaterial.create(6, 1, "Volante", 200, 1, 200)
@@ -14,12 +14,12 @@ RSpec.describe "ProductRawMaterial" do
   end
 
   it "get first product_raw_material" do
-    expect(product_raw_materials.first["product_id"]).to eq("1")
-    expect(product_raw_materials.first["raw_material_description"]).to eq("Carroceria")
-    expect(product_raw_materials.first["net_price"]).to eq("5.000,00")
-    expect(product_raw_materials.first["consumption"]).to eq("1")
-    expect(product_raw_materials.first["raw_material_cost"]).to eq("5000.00")
-    expect(product_raw_materials.first["id"]).to eq("1")
+    expect(product_raw_materials.first.product_id).to eq("1")
+    expect(product_raw_materials.first.raw_material_description).to eq("Carroceria")
+    expect(product_raw_materials.first.net_price).to eq("5.000,00")
+    expect(product_raw_materials.first.consumption).to eq("1")
+    expect(product_raw_materials.first.raw_material_cost).to eq("5000.00")
+    expect(product_raw_materials.first.id).to eq("1")
   end
 
   it "get total cost mp of product 2" do

@@ -12,7 +12,7 @@ class Product
     @unity = unity
   end
 
-  def self.products
+  def self.all
     data_parse = DataParse.new("preco_certo/storage/products.csv").parse!
     data_parse.map do |line|
       Product.new(
@@ -36,7 +36,7 @@ class Product
   def self.calculate_expense_division(product_id)
     product_goal = ProductionGoals.get_product_goal(product_id)
     total_expense = Expense.calculate_total
-    total_expense.to_f / product_goal["monthly_goal"].to_i
+    total_expense.to_f / product_goal.monthly_goal.to_i
   end
 
   def self.create(id_product, description, unity)
@@ -69,7 +69,7 @@ class Product
   private
 
   def calculate_daily_manpower(manpower_time)
-    monthly_goal = ProductionGoals.get_product_goal(id.to_s)["monthly_goal"].to_f || 0
+    monthly_goal = ProductionGoals.get_product_goal(id.to_s).monthly_goal.to_f || 0
 
     ((monthly_goal / 22) * manpower_time) / 528
   end
