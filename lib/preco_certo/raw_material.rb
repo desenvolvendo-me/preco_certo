@@ -38,10 +38,6 @@ class RawMaterial
     DataParse.new(file).create(attributes)
   end
 
-  def self.fetch_raw_materials(id)
-    all.find { |rm| rm.id == id }
-  end
-
   def net_value
     total = price -
             price * icms / 100 +
