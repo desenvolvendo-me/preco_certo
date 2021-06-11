@@ -32,6 +32,6 @@ RSpec.describe "Raw_material" do
   it "calculate net value of raw material 1" do
     total = RawMaterial.calculate_net_value("1")
 
-    expect(total).to eq(4.7)
+    expect(total).to eq(16.94)
   end
 end
