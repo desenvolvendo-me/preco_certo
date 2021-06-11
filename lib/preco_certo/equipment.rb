@@ -53,7 +53,8 @@ class Equipment
   def deprecation_month
     percent = format("%.2f", 100 / annual_percent.to_f).to_f
     per_month = (percent * 12).to_f
-    format("%.2f", value.to_f / per_month.to_f)
+    result = format("%.2f", value.to_f / per_month.to_f)
+    result.to_f
   end
 
   def self.total_deprecation
