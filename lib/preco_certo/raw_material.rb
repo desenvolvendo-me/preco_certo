@@ -4,6 +4,8 @@ require "preco_certo/data_parse"
 
 # raw_material.rb
 class RawMaterial
+  attr_reader :id, :name, :price, :icms, :ipi, :pis, :cofins
+
   def initialize(id, name, price, icms, ipi, pis, cofins)
     @id = id
     @name = name
@@ -14,10 +16,10 @@ class RawMaterial
     @cofins = cofins
   end
 
-  def self.raw_materials
+  def self.all
     file = "preco_certo/storage/raw_materials.csv"
     data_parse = DataParse.new(file).parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       RawMaterial.new(
         line["id"],
         line["name"],
@@ -39,16 +41,16 @@ class RawMaterial
   def self.calculate_net_value(id)
     raw_material = fetch_raw_materials(id)
 
-    total = raw_material["price"].to_f -
-            raw_material["icms"].to_f +
-            raw_material["ipi"].to_f -
-            raw_material["pis"].to_f -
-            raw_material["cofins"].to_f
+    total = raw_material.price.to_f -
+            raw_material.icms.to_f +
+            raw_material.ipi.to_f -
+            raw_material.pis.to_f -
+            raw_material.cofins.to_f
 
     total.ceil(2)
   end
 
   def self.fetch_raw_materials(id)
-    raw_materials.select { |rm| rm["id"] = id }.first
+    all.find { |rm| rm.id == id }
   end
 end
