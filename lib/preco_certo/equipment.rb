@@ -28,6 +28,16 @@ class Equipment
     equipment
   end
 
+  def self.all
+    equipments = []
+
+    CSV.read(CSV_PATH, headers: true, col_sep: ";").each do |row|
+      equipments << Equipment.new(row["id"], row["description"], row["aquisition_date"], row["value"], row["annual_percent"])
+    end
+
+    equipments
+  end
+
   def current_value
     today = Date.today
     aquisited_date = Date.parse(aquisition_date)
