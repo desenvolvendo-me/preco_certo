@@ -19,9 +19,9 @@ class Markup
     @cofins = cofins
   end
 
-  def self.markup
+  def self.all
     data_parse = DataParse.new("preco_certo/storage/markup.csv").parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       Markup.new(
         line["id_markup"],
         line["description"],
