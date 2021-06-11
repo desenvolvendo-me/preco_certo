@@ -31,6 +31,15 @@ RSpec.describe "Equipment" do
     expect(equipment.deprecation_month).to eq(1_500_00)
   end
 
+  it "list all equipments" do
+    Equipment.create("Serra Elétrica", "12/03/2021", 2500, 3)
+    Equipment.create("Furadeira", "21/02/2021", 1200, 2)
+    Equipment.create("Serra Fita", "19/04/2021", 5650, 20)
+    equipments = Equipment.all
+
+    expect(equipments.length).to eq(3)
+  end
+
   it "calculate total deprecation all equipments" do
     deprecation_values = []
     deprecation_values.push(Equipment.create("Serra Elétrica", "12/03/2021", 2500, 3).deprecation_month)
