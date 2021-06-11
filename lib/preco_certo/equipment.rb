@@ -54,4 +54,11 @@ class Equipment
     per_month = (percent * 12).to_f
     format("%.2f", value.to_f / per_month.to_f).to_f
   end
+
+  def self.total_deprecation
+    deprecation_values = []
+    equipments = Equipment.all
+    equipments.each { |equipment| deprecation_values.push(equipment.deprecation_month) }
+    deprecation_values.sum
+  end
 end
