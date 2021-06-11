@@ -43,6 +43,18 @@ class Product
     Product.new(id_product, description, unity)
   end
 
+  def daily_machine_manpower
+    machine_manpower = ProductManPower.machine_time(id)
+
+    calculate_daily_manpower(machine_manpower)
+  end
+
+  def daily_manual_manpower
+    manual_manpower = ProductManPower.manual_time(id)
+
+    calculate_daily_manpower(manual_manpower)
+  end
+
   def sale_price
     total_mp = ProductRawMaterial.total_cost_raw_material(id)
     total_mo = Product.calculate_manpower(id)
@@ -52,5 +64,13 @@ class Product
     price = (total_mp + total_mo + rateio) * indice
 
     price.ceil(2)
+  end
+
+  private
+
+  def calculate_daily_manpower(manpower_time)
+    monthly_goal = ProductionGoals.get_product_goal(id.to_s)["monthly_goal"].to_f || 0
+
+    ((monthly_goal / 22) * manpower_time) / 528
   end
 end

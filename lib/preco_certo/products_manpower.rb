@@ -37,21 +37,23 @@ class ProductManPower
     ProductManPower.new(id_product, operation, employee, salary, time, cost_mo, type_operation, id_equipment)
   end
 
-  def self.machine_time
-    ProductManPower.calculate_work_time("machine")
+  def self.machine_time(product_id = nil)
+    ProductManPower.calculate_work_time("machine", product_id)
   end
 
-  def self.manual_time
-    ProductManPower.calculate_work_time("manual")
+  def self.manual_time(product_id = nil)
+    ProductManPower.calculate_work_time("manual", product_id)
   end
 
-  def self.calculate_work_time(work_type)
+  def self.calculate_work_time(work_type, product_id = nil)
     work_types = {
       "manual" => "0",
       "machine" => "1"
     }
 
-    products_manpower = ProductManPower.all
+    products_manpower = product_id ? all.select { |prod| prod.id_product == product_id } : all
+
+    return 0 if products_manpower.empty?
 
     products_manpower.reduce(0) do |time, product|
       product.type_operation == work_types[work_type] ? time + product.time.to_f : time
