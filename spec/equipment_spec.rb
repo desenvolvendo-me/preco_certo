@@ -27,8 +27,8 @@ RSpec.describe "Equipment" do
   end
 
   it "calculate deprecation month of the equipment" do
-    equipment = Equipment.create("compreensor", "01/01/2021", 180000, 10)
-    expect(equipment.deprecation_month).to eq(1500.00)
+    equipment = Equipment.create("compreensor", "01/01/2021", 180_000_00, 10)
+    expect(equipment.deprecation_month).to eq(1_500_00)
   end
 
   it "list all equipments" do
