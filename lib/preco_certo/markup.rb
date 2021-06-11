@@ -4,7 +4,7 @@ require "preco_certo/data_parse"
 
 # class Markup, CSV Markup
 class Markup
-  attr_accessor :id_markup, :description, :profit, :commission, :shipping, :marketing, :icms, :ipi, :pis, :cofins
+  attr_reader :id_markup, :description, :profit, :commission, :shipping, :marketing, :icms, :ipi, :pis, :cofins
 
   def initialize(id_markup, description, profit, commission, shipping, marketing, icms, ipi, pis, cofins)
     @id_markup = id_markup
