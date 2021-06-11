@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe "Man_Power" do
-  let(:manpowers) { ManPower.manpowers }
+  let(:manpowers) { ManPower.all }
 
   it "create manpower" do
     manpower = ManPower.create(6, "Montagem dos Bancos", "1,80")
@@ -15,8 +15,8 @@ RSpec.describe "Man_Power" do
   end
 
   it "get first product" do
-    expect(manpowers.first["id_manpower"]).to eq("1")
-    expect(manpowers.first["description"]).to eq("Montagem do motor")
-    expect(manpowers.first["time"]).to eq("10,50")
+    expect(manpowers.first.id_manpower).to eq("1")
+    expect(manpowers.first.description).to eq("Montagem do motor")
+    expect(manpowers.first.time).to eq("10,50")
   end
 end
