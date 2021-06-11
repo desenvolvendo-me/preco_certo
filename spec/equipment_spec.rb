@@ -42,7 +42,7 @@ RSpec.describe "Equipment" do
 
   def restart_csv(file_path)
     CSV.open(file_path, "wb", col_sep: ";") do |csv|
-      csv << %w[id description aquisition_date value annual_percentage]
+      csv << %w[id description aquisition_date value annual_percent]
     end
   end
 end
