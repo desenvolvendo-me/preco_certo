@@ -12,9 +12,9 @@ class Expense
     @value = value
   end
 
-  def self.expenses
+  def self.all
     data_parse = DataParse.new("preco_certo/storage/expense.csv").parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       Expense.new(
         line["id"],
         line["description"],
@@ -28,8 +28,8 @@ class Expense
   end
 
   def self.calculate_total
-    expenses.sum do |expense|
-      expense["value"].to_f
+    all.sum do |expense|
+      expense.value.to_f
     end
   end
 end

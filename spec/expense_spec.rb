@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 RSpec.describe "Expense" do
-  let(:expenses) { Expense.expenses }
+  let(:expenses) { Expense.all }
 
   it "get all expenses" do
     expect(expenses.length).to eq(5)
   end
 
   it "get first expense" do
-    expect(expenses.first["id"]).to eq("1")
-    expect(expenses.first["description"]).to eq("aluguel")
-    expect(expenses.first["value"]).to eq("1500,00")
+    expect(expenses.first.id).to eq("1")
+    expect(expenses.first.description).to eq("aluguel")
+    expect(expenses.first.value).to eq("1500,00")
   end
 
   it "create expense" do
