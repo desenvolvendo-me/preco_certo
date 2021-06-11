@@ -21,11 +21,22 @@ class Equipment
     id = rand(ID_RANDOM_SET)
     equipment = Equipment.new(id, description, aquisition_date, value, annual_percent)
 
-    CSV.open(CSV_PATH, "ab") do |csv|
+    CSV.open(CSV_PATH, "ab", col_sep: ";") do |csv|
       csv << [equipment.id, equipment.description, equipment.aquisition_date, equipment.value, equipment.annual_percent]
     end
 
     equipment
+  end
+
+  def self.all
+    equipments = []
+
+    CSV.read(CSV_PATH, headers: true, col_sep: ";").each do |row|
+      equipments << Equipment.new(row["id"], row["description"],
+                                  row["aquisition_date"], row["value"], row["annual_percent"])
+    end
+
+    equipments
   end
 
   def current_value
@@ -40,6 +51,16 @@ class Equipment
   end
 
   def deprecation_month
-    value / ((100 / annual_percent) * 12)
+    percent = format("%.2f", 100 / annual_percent.to_f).to_f
+    per_month = (percent * 12).to_f
+    deprecation_value = value.to_f / per_month
+    format("%.2f", deprecation_value).to_f
+  end
+
+  def self.total_deprecation
+    deprecation_values = []
+    equipments = Equipment.all
+    equipments.each { |equipment| deprecation_values.push(equipment.deprecation_month) }
+    deprecation_values.sum
   end
 end
