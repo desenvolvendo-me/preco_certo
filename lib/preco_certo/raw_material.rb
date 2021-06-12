@@ -38,13 +38,23 @@ class RawMaterial
     DataParse.new(file).create(attributes)
   end
 
-  def net_value
-    total = price -
-            price * icms / 100 +
-            price * ipi / 100 -
-            price * pis / 100 -
-            price * cofins / 100
-
+  def net_value(company_id = nil)
+    if company_id
+      company = Company.all.find { |comp| comp.id == company_id }
+      total = calc_net_value(company)
+    else
+      total = calc_net_value(self)
+    end
     total.round(2)
+  end
+
+  private
+
+  def calc_net_value(subject)
+    price -
+      price * subject.icms.to_f / 100 +
+      price * subject.ipi.to_f / 100 -
+      price * subject.pis.to_f / 100 -
+      price * subject.cofins.to_f / 100
   end
 end
