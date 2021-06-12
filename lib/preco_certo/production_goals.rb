@@ -11,9 +11,9 @@ class ProductionGoals
     @monthly_goal = monthly_goal
   end
 
-  def self.productions_goals
+  def self.all
     data_parse = DataParse.new("preco_certo/storage/production_goals.csv").parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       ProductionGoals.new(
         line["id"],
         line["id_product"],
@@ -24,9 +24,9 @@ class ProductionGoals
   end
 
   def self.get_product_goal(product_id)
-    product_goals = ProductionGoals.productions_goals
+    product_goals = ProductionGoals.all
     product_goals.each do |product|
-      return product if product["id"] == product_id
+      return product if product.id == product_id
     end
     nil
   end

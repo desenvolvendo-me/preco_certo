@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe "Markup" do
-  let(:markups) { Markup.markup }
+  let(:markups) { Markup.all }
 
   it "create Markup" do
     markup = Markup.create(6, "Venda Estado AC", 15.00, 8.00, 3.00, 1.50, 12.00, 5.00, 0.65, 3.00)
@@ -22,6 +22,11 @@ RSpec.describe "Markup" do
     expect(index).to eq(1.66666667)
   end
 
+  it " if company_id calculate index of markup id=1" do
+    index = Markup.calculate_index("1", "1")
+    expect(index).to eq(1.3029316)
+  end
+
   it "calculate index of markup id=2" do
     index = Markup.calculate_index("2")
     expect(index).to eq(1.40845070)
@@ -32,15 +37,15 @@ RSpec.describe "Markup" do
   end
 
   it "get first markup" do
-    expect(markups.first["id_markup"]).to eq("1")
-    expect(markups.first["description"]).to eq("Venda Estado SP")
-    expect(markups.first["profit"]).to eq("10.00")
-    expect(markups.first["commission"]).to eq("8.00")
-    expect(markups.first["shipping"]).to eq("3.00")
-    expect(markups.first["marketing"]).to eq("1.00")
-    expect(markups.first["icms"]).to eq("18.00")
-    expect(markups.first["ipi"]).to eq("0.00")
-    expect(markups.first["pis"]).to eq("0.00")
-    expect(markups.first["cofins"]).to eq("0.00")
+    expect(markups.first.id_markup).to eq("1")
+    expect(markups.first.description).to eq("Venda Estado SP")
+    expect(markups.first.profit).to eq("10.00")
+    expect(markups.first.commission).to eq("8.00")
+    expect(markups.first.shipping).to eq("3.00")
+    expect(markups.first.marketing).to eq("1.00")
+    expect(markups.first.icms).to eq("18.00")
+    expect(markups.first.ipi).to eq("0.00")
+    expect(markups.first.pis).to eq("0.00")
+    expect(markups.first.cofins).to eq("0.00")
   end
 end

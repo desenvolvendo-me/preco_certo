@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe "Product" do
-  let(:products) { Product.products }
+  let(:products) { Product.all }
 
   it "create product" do
     product = Product.create(6, "Ford EcoSport", "UN")
@@ -14,14 +14,25 @@ RSpec.describe "Product" do
     expect(products.length).to eq(5)
   end
 
-  it "calculate manpower of product 1" do
-    total_manpower = Product.calculate_manpower("1")
-    expect(total_manpower).to eq(8.49)
+  context ".calculate_manpower" do
+    it { expect(Product.calculate_manpower("1")).to eq(8.49) }
+    it { expect(Product.calculate_manpower("2")).to eq(8.51) }
   end
 
-  it "calculate manpower of product 2" do
-    total_manpower = Product.calculate_manpower("2")
-    expect(total_manpower).to eq(8.51)
+  context "daily manpower calcs" do
+    def product(id)
+      products.find { |prod| prod.id == id }
+    end
+
+    describe ".daily_manual_manpower" do
+      it { expect(product("1").daily_manual_manpower).to be_within(0.01).of(3.65) }
+      it { expect(product("2").daily_manual_manpower).to be_within(0.01).of(4.18) }
+    end
+
+    describe ".daily_machine_manpower" do
+      it { expect(product("1").daily_machine_manpower).to be_within(0.01).of(1.98) }
+      it { expect(product("2").daily_machine_manpower).to be_within(0.01).of(2.58) }
+    end
   end
 
   it "calculate division expense of product 1" do

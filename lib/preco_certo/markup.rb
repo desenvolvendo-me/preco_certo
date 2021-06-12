@@ -4,7 +4,7 @@ require "preco_certo/data_parse"
 
 # class Markup, CSV Markup
 class Markup
-  attr_accessor :id_markup, :description, :profit, :commission, :shipping, :marketing, :icms, :ipi, :pis, :cofins
+  attr_reader :id_markup, :description, :profit, :commission, :shipping, :marketing, :icms, :ipi, :pis, :cofins
 
   def initialize(id_markup, description, profit, commission, shipping, marketing, icms, ipi, pis, cofins)
     @id_markup = id_markup
@@ -19,9 +19,9 @@ class Markup
     @cofins = cofins
   end
 
-  def self.markup
+  def self.all
     data_parse = DataParse.new("preco_certo/storage/markup.csv").parse!
-    data_parse.each do |line|
+    data_parse.map do |line|
       Markup.new(
         line["id_markup"],
         line["description"],
@@ -37,17 +37,22 @@ class Markup
     end
   end
 
-  def self.calculate_index(id_markup)
-    data_parse = DataParse.new("preco_certo/storage/markup.csv").parse!
-    indice = 0.00
-    # TODO: verificar melhor maneira de filtrar o array
-    data_parse.each do |line|
-      if line["id_markup"] == id_markup
-        indice = line["profit"].to_f + line["commission"].to_f + line["shipping"].to_f + line["marketing"].to_f +
-                 line["icms"].to_f + line["ipi"].to_f + line["pis"].to_f + line["cofins"].to_f
-      end
+  def self.taxes(subject)
+    subject.icms.to_f + subject.ipi.to_f + subject.pis.to_f + subject.cofins.to_f
+  end
+
+  def self.calculate_index(id_markup, company_id = nil)
+    markup = all.find { |mark| mark.id_markup == id_markup }
+    calc = markup.profit.to_f + markup.commission.to_f + markup.shipping.to_f + markup.marketing.to_f
+
+    if company_id
+      company = Company.all.find { |comp| comp.id == company_id }
+      indice = taxes(company)
+    else
+      indice = taxes(markup)
     end
-    (100 / (100 - indice)).round(8)
+
+    (100 / (100 - (indice + calc))).round(8)
   end
 
   def self.create(id_markup, description, profit, commission, shipping, marketing, icms, ipi, pis, cofins)
