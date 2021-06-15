@@ -85,6 +85,10 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     equalizer (0.0.11)
     erubi (1.10.0)
     erubis (2.7.0)
@@ -130,8 +134,6 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
-      racc (~> 1.4)
-    nokogiri (1.11.7-x86_64-linux)
       racc (~> 1.4)
     parallel (1.20.1)
     parser (3.0.1.1)
@@ -263,12 +265,12 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   database_cleaner
+  dotenv-rails (~> 2.5)
   factory_bot_rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
@@ -286,4 +288,4 @@ RUBY VERSION
    ruby 2.7.0p0
 
 BUNDLED WITH
-   2.2.14
+   2.1.2
