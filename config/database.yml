@@ -1,0 +1,27 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['USERNAME_DB'] %>
+  password: <%= ENV['PASSWORD_DB'] %>
+  host: <%= ENV['HOST_DB'] %>
+
+development:
+  <<: *default
+  database: preco_certo_development
+
+test:
+  <<: *default
+  database: preco_certo_test
+
+#   production:
+#     url: <%= ENV['MY_APP_DATABASE_URL'] %>
+#
+# Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
+# for a full overview on how database connection configuration can be specified.
+#
+production:
+  <<: *default
+  database: preco_certo_production
+  username: preco_certo
+  password: <%= ENV['PRECO_CERTO_DATABASE_PASSWORD'] %>
