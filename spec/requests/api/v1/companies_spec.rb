@@ -56,7 +56,7 @@ RSpec.describe "/api/v1/companies", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: "Novo Nome" }
       }
 
       it "updates the requested api/v1_company" do
@@ -64,7 +64,7 @@ RSpec.describe "/api/v1/companies", type: :request do
         patch api_v1_company_url(company),
               params: { company: new_attributes }, as: :json
         company.reload
-        skip("Add assertions for updated state")
+        expect(company.name).to eq("Novo Nome")
       end
     end
 
