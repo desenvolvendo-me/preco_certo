@@ -40,7 +40,7 @@ class RawMaterial
 
   def net_value(company_id = nil)
     if company_id
-      company = Company.all.find { |comp| comp.id == company_id }
+      company = Company.all
       total = calc_net_value(company)
     else
       total = calc_net_value(self)

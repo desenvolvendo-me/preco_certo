@@ -22,10 +22,10 @@ RSpec.describe "Markup" do
     expect(index).to eq(1.66666667)
   end
 
-  it " if company_id calculate index of markup id=1" do
-    index = Markup.calculate_index("1", "1")
-    expect(index).to eq(1.3029316)
-  end
+  # it " if company_id calculate index of markup id=1" do
+  #   index = Markup.calculate_index("1", "1")
+  #   expect(index).to eq(1.3029316)
+  # end
 
   it "calculate index of markup id=2" do
     index = Markup.calculate_index("2")
