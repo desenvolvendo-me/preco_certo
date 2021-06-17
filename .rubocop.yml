@@ -13,7 +13,6 @@ AllCops:
     - 'config/environments/*'
     - 'db/**/*'
     - 'lib/tasks/**/*'
-    - 'lib/wassenger_client/**/*'
     - 'spec/**/*'
   Exclude:
     - '**/templates/**/*'

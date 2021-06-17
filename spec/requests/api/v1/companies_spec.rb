@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "/api/v1/companies", type: :request do
   let(:valid_attributes) { build(:company).attributes }
