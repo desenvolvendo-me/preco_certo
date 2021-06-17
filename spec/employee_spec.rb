@@ -34,10 +34,10 @@ RSpec.describe "Employee" do
     expect(employee.id_function).to eq(1)
   end
 
-  it "calculate minute cost of first employee with company_id 1" do
-    employee = Employee.all.first
-    cost = employee&.minute_cost("1")
-
-    expect(cost).to be_within(0.001).of(0.1416)
-  end
+  # it "calculate minute cost of first employee with company_id 1" do
+  #   employee = Employee.all.first
+  #   cost = employee&.minute_cost("1")
+  #
+  #   expect(cost).to be_within(0.001).of(0.1416)
+  # end
 end
