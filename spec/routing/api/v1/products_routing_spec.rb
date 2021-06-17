@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe Api::V1::ProductsController, type: :routing do
@@ -9,7 +11,6 @@ RSpec.describe Api::V1::ProductsController, type: :routing do
     it "routes to #show" do
       expect(get: "/api/v1/products/1").to route_to("api/v1/products#show", id: "1")
     end
-
 
     it "routes to #create" do
       expect(post: "/api/v1/products").to route_to("api/v1/products#create")
