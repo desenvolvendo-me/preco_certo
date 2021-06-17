@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Company.create!(
   name: "Ford",
   phone: "123112231",
@@ -7,5 +9,5 @@ Company.create!(
   ipi: 5,
   pis: 1,
   cofins: 3.5,
-  payroll_percentage: 5.9,
+  payroll_percentage: 5.9
 )
