@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Company.create!(
+company = Company.create!(
   name: "Ford",
   phone: "123112231",
   cnpj: "12391919123123",
@@ -11,3 +11,18 @@ Company.create!(
   cofins: 3.5,
   payroll_percentage: 5.9
 )
+
+# Create Expenses
+Expense.create!(
+  description: "Agua",
+  value: 150,
+  company: company
+)
+
+Expense.create!(
+  description: "Luz",
+  value: 150.0,
+  company: company
+)
+
+#
