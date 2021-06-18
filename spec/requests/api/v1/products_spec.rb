@@ -36,7 +36,7 @@ RSpec.describe "/api/v1/products", type: :request do
         end.to change(Product, :count).by(1)
       end
 
-      it "renders a JSON response with the new api/v1_product" do
+      it "renders a JSON response with the new product" do
         post api_v1_products_url,
              params: { product: valid_attributes }, as: :json
         expect(response).to have_http_status(:created)
@@ -44,14 +44,14 @@ RSpec.describe "/api/v1/products", type: :request do
     end
 
     context "with invalid parameters" do
-      it "does not create a new Api::V1::Product" do
+      it "does not create a new Product" do
         expect do
           post api_v1_products_url,
                params: { product: invalid_attributes }, as: :json
         end.to change(Product, :count).by(0)
       end
 
-      it "renders a JSON response with errors for the new api/v1_product" do
+      it "renders a JSON response with errors for the new product" do
         post api_v1_products_url,
              params: { product: invalid_attributes }, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
@@ -65,14 +65,14 @@ RSpec.describe "/api/v1/products", type: :request do
         { description: "Roda" }
       end
 
-      it "updates the requested api/v1_product" do
+      it "updates the requested product" do
         patch api_v1_product_url(product),
               params: { product: new_attributes }, as: :json
         product.reload
         expect(product.description).to eq("Roda")
       end
 
-      it "renders a JSON response with the api/v1_product" do
+      it "renders a JSON response with the product" do
         patch api_v1_product_url(product),
               params: { product: new_attributes }, as: :json
         expect(response).to have_http_status(:ok)
@@ -80,7 +80,7 @@ RSpec.describe "/api/v1/products", type: :request do
     end
 
     context "with invalid parameters" do
-      it "renders a JSON response with errors for the api/v1_product" do
+      it "renders a JSON response with errors for the product" do
         patch api_v1_product_url(product),
               params: { product: invalid_attributes }, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
