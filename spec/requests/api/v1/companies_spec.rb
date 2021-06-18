@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe "/api/v1/companies", type: :request do
   let(:valid_attributes) { build(:company).attributes }
 
-  let(:invalid_attributes) {
+  let(:invalid_attributes) do
     {
       name: "",
       cpnj: "",
-      tax_regime: "",
+      tax_regime: ""
     }
-  }
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -30,19 +32,19 @@ RSpec.describe "/api/v1/companies", type: :request do
   describe "POST /create" do
     context "with valid parameters" do
       it "creates a new Company" do
-        expect {
+        expect do
           post api_v1_companies_url,
                params: { company: valid_attributes }, as: :json
-        }.to change(Company, :count).by(1)
+        end.to change(Company, :count).by(1)
       end
     end
 
     context "with invalid parameters" do
       it "does not create a new Api::V1::Company" do
-        expect {
+        expect do
           post api_v1_companies_url,
                params: { company: invalid_attributes }, as: :json
-        }.to change(Company, :count).by(0)
+        end.to change(Company, :count).by(0)
       end
 
       it "renders a JSON response with errors for the new api/v1_company" do
@@ -55,9 +57,9 @@ RSpec.describe "/api/v1/companies", type: :request do
 
   describe "PATCH /update" do
     context "with valid parameters" do
-      let(:new_attributes) {
+      let(:new_attributes) do
         { name: "Novo Nome" }
-      }
+      end
 
       it "updates the requested api/v1_company" do
         company = Company.create! valid_attributes
@@ -81,9 +83,9 @@ RSpec.describe "/api/v1/companies", type: :request do
   describe "DELETE /destroy" do
     it "destroys the requested api/v1_company" do
       company = Company.create! valid_attributes
-      expect {
+      expect do
         delete api_v1_company_url(company), as: :json
-      }.to change(Company, :count).by(-1)
+      end.to change(Company, :count).by(-1)
     end
   end
 end
