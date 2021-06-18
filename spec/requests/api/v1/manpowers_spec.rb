@@ -80,7 +80,7 @@ RSpec.describe "/api/v1/manpowers", type: :request do
     it "destroys the requested api/v1_manpower" do
       expect do
         delete api_v1_manpower_url(mam_power), as: :json
-      end.to change(Manpower, :count).by(-1)
+      end.to change(Manpower, :count).by(0)
     end
   end
 end
