@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 2021_06_17_092806) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,7 +38,6 @@ ActiveRecord::Schema.define(version: 2021_06_17_092806) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "products", force: :cascade do |t|
     t.string "description"
     t.string "unity"
@@ -47,5 +47,6 @@ ActiveRecord::Schema.define(version: 2021_06_17_092806) do
     t.index ["company_id"], name: "index_products_on_company_id"
   end
 
+  add_foreign_key "expenses", "companies"
   add_foreign_key "products", "companies"
 end
