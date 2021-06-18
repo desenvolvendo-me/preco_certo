@@ -4,5 +4,6 @@ FactoryBot.define do
   factory :product do
     description { "MyString" }
     unity { "MyString" }
+    company { create(:company) }
   end
 end
