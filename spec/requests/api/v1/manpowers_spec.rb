@@ -1,15 +1,16 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe "/api/v1/manpowers", type: :request do
-
   let(:valid_attributes) { build(:manpower).attributes }
 
-  let(:invalid_attributes) {
+  let(:invalid_attributes) do
     {
       description: "",
       time_hex: ""
     }
-  }
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -30,19 +31,19 @@ RSpec.describe "/api/v1/manpowers", type: :request do
   describe "POST /create" do
     context "with valid parameters" do
       it "creates a new Manpower" do
-        expect {
+        expect do
           post api_v1_manpowers_url,
                params: { manpower: valid_attributes }, as: :json
-        }.to change(Manpower, :count).by(1)
+        end.to change(Manpower, :count).by(1)
       end
     end
 
     context "with invalid parameters" do
       it "does not create a new Manpower" do
-        expect {
+        expect do
           post api_v1_manpowers_url,
                params: { manpower: invalid_attributes }, as: :json
-        }.to change(Manpower, :count).by(0)
+        end.to change(Manpower, :count).by(0)
       end
 
       it "renders a JSON response with errors for the new api/v1_manpower" do
@@ -55,9 +56,9 @@ RSpec.describe "/api/v1/manpowers", type: :request do
 
   describe "PATCH /update" do
     context "with valid parameters" do
-      let(:new_attributes) {
+      let(:new_attributes) do
         { description: "Montagem do motor" }
-      }
+      end
 
       it "updates the requested api/v1_manpower" do
         manpower = Manpower.create! valid_attributes
@@ -81,9 +82,9 @@ RSpec.describe "/api/v1/manpowers", type: :request do
   describe "DELETE /destroy" do
     it "destroys the requested api/v1_manpower" do
       manpower = Manpower.create! valid_attributes
-      expect {
+      expect do
         delete api_v1_manpower_url(manpower), as: :json
-      }.to change(Manpower, :count).by(-1)
+      end.to change(Manpower, :count).by(-1)
     end
   end
 end
