@@ -14,4 +14,12 @@ RSpec.describe Company, type: :model do
     it { should have_many(:products) }
   end
 
+  context "calculates" do
+    it "value total expenses" do
+      company = create(:company)
+      create_list(:expense, 5, value: 1.0, company: company)
+
+      expect(company.calculate_total_expenses).to eq(5.0)
+    end
+  end
 end
