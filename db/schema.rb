@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2021_06_17_092806) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_06_17_092806) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
 
   create_table "manpowers", force: :cascade do |t|
     t.string "description"
@@ -49,4 +48,5 @@ ActiveRecord::Schema.define(version: 2021_06_17_092806) do
 
   add_foreign_key "expenses", "companies"
   add_foreign_key "products", "companies"
+
 end
