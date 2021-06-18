@@ -24,5 +24,3 @@ Expense.create!(
   value: 150.0,
   company: company
 )
-
-#
