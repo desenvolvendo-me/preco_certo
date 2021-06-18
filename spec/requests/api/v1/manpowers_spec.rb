@@ -3,6 +3,7 @@
 require "rails_helper"
 
 RSpec.describe "/api/v1/manpowers", type: :request do
+  let(:mam_power) { create(:manpower) }
   let(:valid_attributes) { build(:manpower).attributes }
 
   let(:invalid_attributes) do
@@ -14,7 +15,6 @@ RSpec.describe "/api/v1/manpowers", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Manpower.create! valid_attributes
       get api_v1_manpowers_url, as: :json
       expect(response).to be_successful
     end
@@ -22,8 +22,7 @@ RSpec.describe "/api/v1/manpowers", type: :request do
 
   describe "GET /show" do
     it "renders a successful response" do
-      manpower = Manpower.create! valid_attributes
-      get api_v1_manpower_url(manpower), as: :json
+      get api_v1_manpower_url(mam_power), as: :json
       expect(response).to be_successful
     end
   end
@@ -61,18 +60,16 @@ RSpec.describe "/api/v1/manpowers", type: :request do
       end
 
       it "updates the requested api/v1_manpower" do
-        manpower = Manpower.create! valid_attributes
-        patch api_v1_manpower_url(manpower),
+        patch api_v1_manpower_url(mam_power),
               params: { manpower: new_attributes }, as: :json
-        manpower.reload
-        expect(manpower.description).to eq("Montagem do motor")
+        mam_power.reload
+        expect(mam_power.description).to eq("Montagem do motor")
       end
     end
 
     context "with invalid parameters" do
       it "renders a JSON response with errors for the api/v1_manpower" do
-        manpower = Manpower.create! valid_attributes
-        patch api_v1_manpower_url(manpower),
+        patch api_v1_manpower_url(mam_power),
               params: { manpower: invalid_attributes }, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
       end
@@ -81,9 +78,8 @@ RSpec.describe "/api/v1/manpowers", type: :request do
 
   describe "DELETE /destroy" do
     it "destroys the requested api/v1_manpower" do
-      manpower = Manpower.create! valid_attributes
       expect do
-        delete api_v1_manpower_url(manpower), as: :json
+        delete api_v1_manpower_url(mam_power), as: :json
       end.to change(Manpower, :count).by(-1)
     end
   end
