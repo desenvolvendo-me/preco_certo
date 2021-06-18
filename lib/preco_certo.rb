@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
 require_relative "preco_certo/version"
-require_relative "preco_certo/expense"
 require_relative "preco_certo/data_parse"
 require_relative "preco_certo/employee"
 require_relative "preco_certo/helpers"
 require_relative "preco_certo/job_function"
-require_relative "preco_certo/manpower"
-require_relative "preco_certo/product"
 require_relative "preco_certo/production_goals"
 require_relative "preco_certo/products_manpower"
 require_relative "preco_certo/product_raw_material"

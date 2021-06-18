@@ -8,6 +8,7 @@ json.extract! company,
               :pis,
               :cofins,
               :payroll_percentage,
+              :calculate_total_expenses,
               :created_at,
               :updated_at
 
