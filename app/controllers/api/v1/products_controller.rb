@@ -52,7 +52,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def product_params
-        params.require(:product).permit(:description, :unity)
+        params.require(:product).permit(:description, :unity, :company_id)
       end
     end
   end
