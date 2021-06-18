@@ -1,22 +1,23 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe "/api/v1/raw_materials", type: :request do
   let(:valid_attributes) { build(:raw_material).attributes }
 
-
-  let(:invalid_attributes) {
+  let(:invalid_attributes) do
     {
-      name: "",
+      name: ""
     }
-  }
+  end
 
   # This should return the minimal set of values that should be in the headers
   # in order to pass any filters (e.g. authentication) defined in
   # Api::V1::RawMaterialsController, or in your router and rack
   # middleware. Be sure to keep this updated too.
-  let(:valid_headers) {
+  let(:valid_headers) do
     {}
-  }
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -37,10 +38,10 @@ RSpec.describe "/api/v1/raw_materials", type: :request do
   describe "POST /create" do
     context "with valid parameters" do
       it "creates a new Api::V1::RawMaterial" do
-        expect {
+        expect do
           post api_v1_raw_materials_url,
                params: { raw_material: valid_attributes }, headers: valid_headers, as: :json
-        }.to change(RawMaterial, :count).by(1)
+        end.to change(RawMaterial, :count).by(1)
       end
 
       it "renders a JSON response with the new api/v1_raw_material" do
@@ -53,10 +54,10 @@ RSpec.describe "/api/v1/raw_materials", type: :request do
 
     context "with invalid parameters" do
       it "does not create a new Api::V1::RawMaterial" do
-        expect {
+        expect do
           post api_v1_raw_materials_url,
                params: { raw_material: invalid_attributes }, as: :json
-        }.to change(RawMaterial, :count).by(0)
+        end.to change(RawMaterial, :count).by(0)
       end
 
       it "renders a JSON response with errors for the new api/v1_raw_material" do
@@ -70,9 +71,9 @@ RSpec.describe "/api/v1/raw_materials", type: :request do
 
   describe "PATCH /update" do
     context "with valid parameters" do
-      let(:new_attributes) {
+      let(:new_attributes) do
         { name: "Novo Nome" }
-      }
+      end
 
       it "updates the requested api/v1_raw_material" do
         raw_material = RawMaterial.create! valid_attributes
@@ -105,9 +106,9 @@ RSpec.describe "/api/v1/raw_materials", type: :request do
   describe "DELETE /destroy" do
     it "destroys the requested api/v1_raw_material" do
       raw_material = RawMaterial.create! valid_attributes
-      expect {
+      expect do
         delete api_v1_raw_material_url(raw_material), headers: valid_headers, as: :json
-      }.to change(RawMaterial, :count).by(-1)
+      end.to change(RawMaterial, :count).by(-1)
     end
   end
 end
