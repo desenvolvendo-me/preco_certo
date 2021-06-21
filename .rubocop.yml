@@ -1,5 +1,30 @@
 AllCops:
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 2.7.0
+  Include:
+    - 'app/controllers/**/*'
+    - 'app/helpers/**/*'
+    - 'app/inputs/**/*'
+    - 'app/jobs/**/*'
+    - 'app/mailers/**/*'
+    - 'app/policies/**/*'
+    - 'app/services/**/*'
+    - 'config/initializers/*'
+    - 'config/environments/*'
+    - 'db/**/*'
+    - 'lib/tasks/**/*'
+    - 'spec/**/*'
+  Exclude:
+    - '**/templates/**/*'
+    - '**/vendor/**/*'
+    - '**/.keep'
+    - 'actionpack/lib/action_dispatch/journey/parser.rb'
+    - 'railties/test/fixtures/tmp/**/*'
+    - 'actionmailbox/test/dummy/**/*'
+    - 'actiontext/test/dummy/**/*'
+    - '**/node_modules/**/*'
+    - 'db/schema.rb'
+    - 'spec/fixtures/**/*'
+    - 'bin/*'
 
 Style/StringLiterals:
   Enabled: true
@@ -20,3 +45,6 @@ Metrics/BlockLength:
 
 Metrics/AbcSize:
   Max: 40
+
+Style/Documentation:
+  Enabled: false
