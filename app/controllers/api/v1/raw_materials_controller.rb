@@ -59,7 +59,8 @@ module Api
           :icms,
           :ipi,
           :pis,
-          :cofins
+          :cofins,
+          :net_price
         )
       end
     end
