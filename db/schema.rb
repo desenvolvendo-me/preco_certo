@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_092806) do
+ActiveRecord::Schema.define(version: 2021_06_18_082508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 2021_06_17_092806) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "expenses", force: :cascade do |t|
+    t.string "description"
+    t.float "value"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_expenses_on_company_id"
+  end
 
   create_table "manpowers", force: :cascade do |t|
     t.string "description"
@@ -46,7 +54,17 @@ ActiveRecord::Schema.define(version: 2021_06_17_092806) do
     t.index ["company_id"], name: "index_products_on_company_id"
   end
 
+  create_table "raw_materials", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.float "icms"
+    t.float "ipi"
+    t.float "pis"
+    t.float "cofins"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "expenses", "companies"
   add_foreign_key "products", "companies"
-
 end
