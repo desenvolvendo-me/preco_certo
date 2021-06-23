@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :manpowers
       resources :products
       resources :expenses
+      resources :product_raw_materials
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
