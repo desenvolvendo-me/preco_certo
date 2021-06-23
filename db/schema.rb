@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_082508) do
+ActiveRecord::Schema.define(version: 2021_06_23_083640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,28 @@ ActiveRecord::Schema.define(version: 2021_06_18_082508) do
     t.index ["company_id"], name: "index_expenses_on_company_id"
   end
 
+  create_table "job_functions", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "manpowers", force: :cascade do |t|
     t.string "description"
     t.float "time_hex"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "product_raw_materials", force: :cascade do |t|
+    t.float "consumption"
+    t.float "raw_material_cost"
+    t.bigint "product_id", null: false
+    t.bigint "raw_material_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_raw_materials_on_product_id"
+    t.index ["raw_material_id"], name: "index_product_raw_materials_on_raw_material_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -63,8 +80,11 @@ ActiveRecord::Schema.define(version: 2021_06_18_082508) do
     t.float "cofins"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "net_price"
   end
 
   add_foreign_key "expenses", "companies"
+  add_foreign_key "product_raw_materials", "products"
+  add_foreign_key "product_raw_materials", "raw_materials"
   add_foreign_key "products", "companies"
 end
