@@ -24,3 +24,12 @@ Expense.create!(
   value: 150.0,
   company: company
 )
+
+job_function_list = [
+  "Pintor", "Montador", "Revisor", "Gestor de projetos", "Operador de máquina", "Almoxarife",
+  "Programador da Produção", "supervisor", "Analista de PCP", "Gerente de Produção", "Diretor"
+]
+
+job_function_list.each do |job_function|
+  JobFunction.create!(description: job_function)
+end
