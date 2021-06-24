@@ -1,13 +1,13 @@
 # Preco Certo (API)
 
-No Heroku [preco certo](https://pet-love-app.herokuapp.com)
+No Heroku [preco certo](https://preco-certo.herokuapp.com/)
 
 Projeto para empresas/fábricas saberem o preco certo a serem vendido. 
 
 ## Documentação da API
 
 Neste [link](https://app.getpostman.com/join-team?invite_code=2b25611260c4dcd87c9cce09f33361e2&ws=6e16437e-254b-41cd-865b-c565b2fff824) pode acessar a documentação no postman
-
+Ou baixando o arquivo [doc/preco_certo.postman_collection.json](https://raw.githubusercontent.com/desenvolvendo-me/preco_certo/tree/release/v0.6/doc/preco_certo.postman_collection.json)
 No Postman tem dois environments:
 1. Development
     - HOST_URL = localhost:3000
