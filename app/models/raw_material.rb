@@ -3,5 +3,5 @@
 class RawMaterial < ApplicationRecord
   has_many :product_raw_materials
 
-  validates :name, presence: true
+  validates :name, :net_price, presence: true
 end
