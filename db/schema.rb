@@ -63,11 +63,11 @@ ActiveRecord::Schema.define(version: 2021_06_23_234048) do
   end
 
   create_table "production_goals", force: :cascade do |t|
-    t.integer "product_id"
-    t.string "description"
     t.integer "monthly_goal"
+    t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_production_goals_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -94,5 +94,6 @@ ActiveRecord::Schema.define(version: 2021_06_23_234048) do
   add_foreign_key "expenses", "companies"
   add_foreign_key "product_raw_materials", "products"
   add_foreign_key "product_raw_materials", "raw_materials"
+  add_foreign_key "production_goals", "products"
   add_foreign_key "products", "companies"
 end
