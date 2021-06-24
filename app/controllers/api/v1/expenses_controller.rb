@@ -14,7 +14,6 @@ module Api
 
       # GET /api/v1/expenses/1.json
       def show
-
         render json: @expense
       end
 
