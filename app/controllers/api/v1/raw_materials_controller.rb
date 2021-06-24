@@ -5,17 +5,18 @@ module Api
     class RawMaterialsController < ApplicationController
       before_action :set_api_v1_raw_material, only: %i[show update destroy]
 
-      # GET /api/v1/raw_materials
       # GET /api/v1/raw_materials.json
       def index
         @raw_materials = RawMaterial.all
+
+        render json: @raw_materials
       end
 
-      # GET /api/v1/raw_materials/1
       # GET /api/v1/raw_materials/1.json
-      def show; end
+      def show
+        render json: @raw_material
+      end
 
-      # POST /api/v1/raw_materials
       # POST /api/v1/raw_materials.json
       def create
         @raw_material = RawMaterial.new(raw_material_params)
@@ -27,7 +28,6 @@ module Api
         end
       end
 
-      # PATCH/PUT /api/v1/raw_materials/1
       # PATCH/PUT /api/v1/raw_materials/1.json
       def update
         if @raw_material.update(raw_material_params)
@@ -37,7 +37,6 @@ module Api
         end
       end
 
-      # DELETE /api/v1/raw_materials/1
       # DELETE /api/v1/raw_materials/1.json
       def destroy
         @raw_material.destroy

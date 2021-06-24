@@ -8,10 +8,14 @@ module Api
       # GET /api/v1/product_raw_materials.json
       def index
         @product_raw_materials = ProductRawMaterial.all
+
+        render json: @product_raw_materials
       end
 
       # GET /api/v1/product_raw_materials/1.json
-      def show; end
+      def show
+        render json: @product_raw_material
+      end
 
       # POST /api/v1/product_raw_materials.json
       def create

@@ -8,10 +8,14 @@ module Api
       # GET /api/v1/manpowers.json
       def index
         @manpowers = Manpower.all
+
+        render json: @manpowers
       end
 
       # GET /api/v1/manpowers/1.json
-      def show; end
+      def show
+        render json: @manpower
+      end
 
       # POST /api/v1/manpowers.json
       def create

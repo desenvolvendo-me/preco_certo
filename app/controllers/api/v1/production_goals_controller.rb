@@ -9,11 +9,15 @@ module Api
       # GET /api/v1/production_goals.json
       def index
         @production_goals = ProductionGoal.all
+
+        render json: @production_goals
       end
 
       # GET /api/v1/production_goals/1
       # GET /api/v1/production_goals/1.json
-      def show; end
+      def show
+        render json: @production_goals
+      end
 
       # POST /api/v1/production_goals
       # POST /api/v1/production_goals.json
