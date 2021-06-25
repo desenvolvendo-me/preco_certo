@@ -1,5 +1,24 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: companies
+#
+#  id                 :bigint(8)        not null, primary key
+#  cnpj               :string
+#  cofins             :float
+#  icms               :float
+#  ipi                :float
+#  name               :string
+#  payroll_percentage :float
+#  phone              :string
+#  pis                :float
+#  tax_regime         :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+
 class Company < ApplicationRecord
   has_many :expenses
   has_many :products

@@ -1,0 +1,825 @@
+{
+	"info": {
+		"_postman_id": "0266ca3a-9d84-45f5-b3db-84911c176705",
+		"name": "preco_certo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "companies",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/companies",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ford\",\n    \"cnpj\": \"123123131\",\n    \"tax_regime\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/companies",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nissan\",\n    \"phone\": \"111222233\",\n    \"tax_regime\": 1,\n    \"icms\": 123.0,\n    \"pis\": 11\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/companies/1",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/companies/1",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "expenses",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/expenses",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/expenses/1",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"expenses",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Luz\",\n    \"value\": \"123123131\",\n    \"company_id\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/expenses",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\": \"130.69\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/expenses/2",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"expenses",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/expenses/2",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"expenses",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "man_powers",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/manpowers",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"manpowers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/manpowers/1",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"manpowers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Pintura do Veiculo\",\n    \"time_hex\": 1900\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/manpowers",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"manpowers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"time_hex\": \"2000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/manpowers/2",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"manpowers",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/manpowers/2",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"manpowers",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/products",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/products/1",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Rodas\",\n    \"unity\": \"KG\",\n    \"company_id\": 1\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/products/",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"unity\": \"UN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/products/2",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/products/2",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product raw material",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/product_raw_materials",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"product_raw_materials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/product_raw_materials/1",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product_raw_materials",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"consumption\": 2,\n    \"product_id\": 1,\n    \"raw_material_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/product_raw_materials",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product_raw_materials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"consumption\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/product_raw_materials/2",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product_raw_materials",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/product_raw_materials/2",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"product_raw_materials",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "production goals",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/production_goals",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"production_goals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/production_goals/1",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"production_goals",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"monthly_goal\": 100,\n    \"product_id\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/production_goals",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"production_goals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"consumption\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/production_goals/2",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"production_goals",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/production_goals/2",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"production_goals",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "raw_material",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/raw_materials",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"raw_materials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/raw_materials/1",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"raw_materials",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Plástico\",\n    \"price\": 5.20,\n    \"icms\": 12,\n    \"ipi\": 5,\n    \"pis\": 0.65,\n    \"cofins\": 7.65\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/raw_materials",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"raw_materials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"net_price\": 6.30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/api/v1/raw_materials/1",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"raw_materials",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}api/v1/raw_materials/2",
+							"host": [
+								"{{HOST_URL}}api"
+							],
+							"path": [
+								"v1",
+								"raw_materials",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

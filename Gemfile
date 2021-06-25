@@ -30,6 +30,7 @@ gem 'rubocop-rails'
 gem 'dotenv-rails', '~> 2.5'
 
 group :development, :test do
+  gem 'annotate', '~> 2.7', '>= 2.7.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
