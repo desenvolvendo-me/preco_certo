@@ -9,11 +9,15 @@ module Api
       # GET /api/v1/products.json
       def index
         @products = Product.all
+
+        render json: @products
       end
 
       # GET /api/v1/products/1
       # GET /api/v1/products/1.json
-      def show; end
+      def show
+        render json: @product
+      end
 
       # POST /api/v1/products
       # POST /api/v1/products.json

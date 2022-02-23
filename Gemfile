@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.0"
+ruby "2.7.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 6.1.3", ">= 6.1.3.2"
@@ -30,6 +30,7 @@ gem 'rubocop-rails'
 gem 'dotenv-rails', '~> 2.5'
 
 group :development, :test do
+  gem 'annotate', '~> 2.7', '>= 2.7.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"

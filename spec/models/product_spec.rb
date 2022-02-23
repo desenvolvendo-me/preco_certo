@@ -5,6 +5,7 @@ require "rails_helper"
 RSpec.describe Product, type: :model do
   describe "associations" do
     it { should belong_to(:company) }
+    it { should have_many(:product_raw_materials) }
   end
 
   describe "validations" do

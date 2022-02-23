@@ -8,5 +8,6 @@ FactoryBot.define do
     ipi { 1.5 }
     pis { 1.5 }
     cofins { 1.5 }
+    net_price { 1.5 }
   end
 end

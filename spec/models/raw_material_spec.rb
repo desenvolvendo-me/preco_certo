@@ -3,5 +3,11 @@
 require "rails_helper"
 
 RSpec.describe RawMaterial, type: :model do
-  it { is_expected.to validate_presence_of :name }
+  describe "associations" do
+    it { should have_many(:product_raw_materials) }
+  end
+
+  describe "validations" do
+    it { is_expected.to validate_presence_of :name }
+  end
 end

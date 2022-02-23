@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.7.0
+  TargetRubyVersion: 2.7.3
   Include:
     - 'app/controllers/**/*'
     - 'app/helpers/**/*'
@@ -42,6 +42,7 @@ Metrics/ParameterLists:
 
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context', 'it']
+  Max: 50
 
 Metrics/AbcSize:
   Max: 40
